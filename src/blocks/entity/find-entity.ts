@@ -9,8 +9,8 @@ const BlockJSON = {
             {
                 name: 'FIELD_DROPDOWN_ENTITY_TYPE',
                 options: [
-                    ['actor', 'actors'],
-                    ['token', 'tokens'],
+                    ['actor', 'game.actors'],
+                    ['token', 'canvas.tokens.controlled'],
                 ],
                 type: 'field_dropdown',
             },
@@ -37,11 +37,11 @@ Blockly.Blocks[BlockNames.FindEntity] = {
 /* generators */
 
 Blockly.JavaScript[BlockNames.FindEntity] = (block) => {
-    const entityType = block.getFieldValue('FIELD_DROPDOWN_ENTITY_TYPE');
+    const entityTypePath = block.getFieldValue('FIELD_DROPDOWN_ENTITY_TYPE');
     const entityFilter = Blockly.JavaScript.valueToCode(block, 'INPUT_ENTITY_FILTER', Blockly.JavaScript.ORDER_ATOMIC);
     // TODO: Assemble JavaScript into code variable.
     const code = formatCode(`
-        game.${entityType}.objects.children.find(${entityFilter})
+        ${entityTypePath}.find(${entityFilter})
     `);
     // TODO: Change ORDER_NONE to the correct strength.
     return code;

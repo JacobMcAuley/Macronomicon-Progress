@@ -21,9 +21,16 @@ const blocks = {
             },
             {
                 align: 'RIGHT',
-                check: BlockTypes.Operator,
                 name: 'INPUT_OPERATOR',
-                type: 'input_value',
+                options: [
+                    ['EQUAL', '==='],
+                    ['NOT EQUAL', '!=='],
+                    ['LESS THAN', '<'],
+                    ['LESS THAN OR EQUAL', '<='],
+                    ['GREATER THAN', '>'],
+                    ['GREATHER THAN OR EQUAL', '>='],
+                ],
+                type: 'field_dropdown',
             },
             {
                 align: 'RIGHT',
@@ -53,29 +60,29 @@ Blockly.Blocks['entity_attribute_filter'] = {
 };
 
 /* Generators */
-Blockly.JavaScript[BlockNames.EntitySelectedFilter] = function (block) {
-    const code = `((token) => token.data._id === canvas.tokens.controlled[0])`;
+Blockly.JavaScript[BlockNames.EntitySelectedFilter] = function () {
+    const code = `((entity) => entity.data._id === canvas.tokens.controlled[0]?.id)`;
     return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
+const PATH_PART_REDUCER_BRACKET = [(prev: string, next: string) => `${prev}[${next}]`] as const;
+// const PATH_PART_REDUCER_DOT = [(prev: string, next: string) => `${prev}.${next}`, ''] as const;
+
 Blockly.JavaScript[BlockNames.EntityAttributeFilter] = function (block) {
-    const value_input_attribute = Blockly.JavaScript.valueToCode(
-        block,
-        'INPUT_ATTRIBUTE',
-        Blockly.JavaScript.ORDER_ATOMIC,
-    );
-    const value_input_operator = Blockly.JavaScript.valueToCode(
-        block,
-        'INPUT_OPERATOR',
-        Blockly.JavaScript.ORDER_ATOMIC,
-    );
-    const value_input_comparison_value = Blockly.JavaScript.valueToCode(
+    const inputAttribute = Blockly.JavaScript.valueToCode(block, 'INPUT_ATTRIBUTE', Blockly.JavaScript.ORDER_NONE);
+
+    const valuePath = inputAttribute.split('.').reduce(...PATH_PART_REDUCER_BRACKET);
+
+    const operator: string = block.getFieldValue('INPUT_OPERATOR');
+
+    const valueComparison = Blockly.JavaScript.valueToCode(
         block,
         'INPUT_COMPARISON_VALUE',
-        Blockly.JavaScript.ORDER_ATOMIC,
+        Blockly.JavaScript.ORDER_NONE,
     );
     // TODO: Assemble JavaScript into code variable.
-    const code = '...';
+    const code = `((entity) => entity${valuePath} ${operator} ${valueComparison})`;
+
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.JavaScript.ORDER_NONE];
 };

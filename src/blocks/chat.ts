@@ -24,7 +24,7 @@ Blockly.Blocks[BlockNames.SayAloud] = {
 
 /* Generators */
 
-Blockly.JavaScript[BlockNames.SayAloud] = function (block) {
+Blockly.JavaScript[BlockNames.SayAloud] = (block) => {
     const msg = block.getFieldValue('CHAT_MESSAGE_INPUT');
 
     return `

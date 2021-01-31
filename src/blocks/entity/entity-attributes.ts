@@ -31,3 +31,9 @@ Blockly.Blocks[BlockNames.EntityIdAttribute] = {
         this.jsonInit(blocks[BlockNames.EntityIdAttribute]);
     },
 };
+
+/* Generators */
+
+Blockly.JavaScript[BlockNames.EntityNameAttribute] = () => [`data.name`, Blockly.JavaScript.ORDER_NONE];
+
+Blockly.JavaScript[BlockNames.EntityIdAttribute] = () => [`data._id`, Blockly.JavaScript.ORDER_NONE];

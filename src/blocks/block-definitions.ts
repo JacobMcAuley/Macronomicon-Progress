@@ -5,6 +5,7 @@ export enum BlockNames {
     EntitySelectedFilter = 'entity_selected_filter',
     FindEntity = 'find_entity',
     SayAloud = 'say_aloud',
+    LogicCompare = 'logic_compare',
 }
 
 export enum BlockTypes {

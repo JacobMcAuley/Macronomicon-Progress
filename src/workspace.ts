@@ -2,6 +2,7 @@ import * as Blockly from 'blockly';
 import merge from 'lodash.merge';
 
 import './blocks';
+import { BlockNames } from './blocks/block-definitions';
 
 import toolbox from './toolbox.json';
 

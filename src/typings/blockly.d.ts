@@ -51,7 +51,7 @@ declare module 'blockly' {
     }
 
     type Blocks = {
-        [_ in blocks]: (block: Blockly.Block) => string | [string, any];
+        [_ in blocks]: (block: Block) => string | [string, any];
     } &
         {
             [_ in keyof typeof JavaScriptOrders]: typeof JavaScriptOrders[_];
