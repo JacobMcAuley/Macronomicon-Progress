@@ -12,7 +12,7 @@ export const createWorkspace = (selector: string): Blockly.Workspace => {
             snap: true,
             spacing: 20,
         },
-        media: 'media/',
+        media: 'modules/macronomicon/media/',
         toolbox,
         trashcan: false,
         zoom: {

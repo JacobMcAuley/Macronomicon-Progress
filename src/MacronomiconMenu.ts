@@ -3,6 +3,10 @@ import * as Blockly from 'blockly';
 import { createWorkspace } from './workspace';
 
 export class MacronomiconMenu extends FormApplication {
+    constructor(...args){
+        super(...args);
+    }
+
     static get defaultOptions() {
         const options = super.defaultOptions;
         options.template = 'modules/macronomicon/templates/macronomicon-menu.html';
@@ -15,9 +19,9 @@ export class MacronomiconMenu extends FormApplication {
     }
     
 
-    activateListeners() {
-        $('#submitMacro').on('click', async () => {
-            const workspace = createWorkspace('macronomicon-workspace');
+    activateListeners(html) {
+        const workspace = createWorkspace('macronomicon-workspace');
+        $('#macronomicon-convert').on('click', async () => {
             const code = Blockly.JavaScript.workspaceToCode(workspace);
             const macro = await Macro.create({
                 command: code,
@@ -30,15 +34,6 @@ export class MacronomiconMenu extends FormApplication {
     }
 
     getData() {
-        const templateData:FormApplication.Data<object> = {
-            object: {},
-            options: {} as any,
-            title: 'Macronomicon',
-        };
-        return templateData;
-    }
-
-    _updateObject() {
-        return;
+        return {};
     }
 }
