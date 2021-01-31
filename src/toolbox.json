@@ -11,11 +11,11 @@
                 },
                 {
                     "kind": "block",
-                    "type": "entity_name"
+                    "type": "entity_name_attribute"
                 },
                 {
                     "kind": "block",
-                    "type": "entity_id"
+                    "type": "entity_id_attribute"
                 },
                 {
                     "kind": "block",
@@ -24,10 +24,6 @@
                 {
                     "kind": "block",
                     "type": "entity_selected_filter"
-                },
-                {
-                    "kind": "block",
-                    "type": "update_entity_attribute"
                 },
                 {
                     "kind": "block",

@@ -4,7 +4,7 @@ import { formatCode } from './code-formatter';
 import { createWorkspace } from './workspace';
 
 export class MacronomiconMenu extends FormApplication {
-    constructor(...args){
+    constructor(...args) {
         super(...args);
     }
 
@@ -18,7 +18,6 @@ export class MacronomiconMenu extends FormApplication {
         options.id = 'macronomicon';
         return options;
     }
-    
 
     activateListeners(html) {
         const workspace = createWorkspace('macronomicon-workspace');

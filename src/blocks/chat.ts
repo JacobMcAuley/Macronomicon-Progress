@@ -1,33 +1,37 @@
 import * as Blockly from 'blockly';
+import { BlockNames } from './block-definitions';
 
-Blockly.Blocks['say_aloud'] = {
-    init: function (this: Blockly.Block) {
-        this.setInputsInline(false);
-        this.appendValueInput('CHAT_MESSAGE_VALUE')
-            .appendField('Say message')
-            .appendField(
-                new Blockly.FieldTextInput('my message'),
-                'CHAT_MESSAGE_INPUT',
-            )
-            .appendField('aloud')
-            .setCheck('String');
-
-        this.setColour(160);
-        this.setTooltip('Says a message aloud');
-        this.setHelpUrl('')
-
-        this.setNextStatement(true, 'Entity');
+const BlockJSON = {
+    [BlockNames.SayAloud]: {
+        args0: [
+            {
+                check: 'String',
+                name: 'VALUE',
+                type: 'input_value',
+            },
+        ],
+        colour: 100,
+        message0: 'Say message %1 aloud',
+        output: false,
     },
 };
 
+Blockly.Blocks[BlockNames.SayAloud] = {
+    init: function (this: Blockly.Block) {
+        this.jsonInit(BlockJSON[BlockNames.SayAloud]);
+    },
+};
 
-Blockly.JavaScript['say_aloud'] = function(block) {
-  const msg = block.getFieldValue('CHAT_MESSAGE_INPUT');
+/* Generators */
 
-  return `
-  ChatMessage.create({
-      user: game.user._id,
-      speaker: ChatMessage.getSpeaker({token: canvas.tokens.controlled[0]}),
-      content: "${msg}"
-  }, {chatBubble : true})`;
-}
+Blockly.JavaScript[BlockNames.SayAloud] = function (block) {
+    const msg = block.getFieldValue('CHAT_MESSAGE_INPUT');
+
+    return `
+        ChatMessage.create({
+            user: game.user._id,
+            speaker: ChatMessage.getSpeaker({token: canvas.tokens.controlled[0]}),
+            content: "${msg}"
+        }, {chatBubble : true})
+    `;
+};

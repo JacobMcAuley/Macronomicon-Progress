@@ -6,4 +6,4 @@ import { MacronomiconMenu } from './MacronomiconMenu';
 
 (window as any).foo = () => {
     new MacronomiconMenu().render(true);
-}
+};
