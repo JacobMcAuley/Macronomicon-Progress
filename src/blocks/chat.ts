@@ -1,0 +1,33 @@
+import * as Blockly from 'blockly';
+
+Blockly.Blocks['say_aloud'] = {
+    init: function (this: Blockly.Block) {
+        this.setInputsInline(false);
+        this.appendValueInput('CHAT_MESSAGE_VALUE')
+            .appendField('Say message')
+            .appendField(
+                new Blockly.FieldTextInput('my message'),
+                'CHAT_MESSAGE_INPUT',
+            )
+            .appendField('aloud')
+            .setCheck('String');
+
+        this.setColour(160);
+        this.setTooltip('Says a message aloud');
+        this.setHelpUrl('')
+
+        this.setNextStatement(true, 'Entity');
+    },
+};
+
+
+Blockly.JavaScript['say_aloud'] = function(block) {
+  const msg = Blockly.JavaScript.valueToCode(block, 'CHAT_MESSAGE_VALUE', Blockly.JavaScript.ORDER_NONE);
+
+  return `
+  ChatMessage.create({
+      user: game.user._id,
+      speaker: ChatMessage.getSpeaker({token: canvas.tokens.controlled[0]}),
+      content: ${msg}
+  }, {chatBubble : true})`;
+}

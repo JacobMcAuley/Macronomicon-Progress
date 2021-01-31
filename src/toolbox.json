@@ -28,6 +28,10 @@
                 {
                     "kind": "block",
                     "type": "update_entity_attribute"
+                },
+                {
+                    "kind": "block",
+                    "type": "say_aloud"
                 }
             ]
         }

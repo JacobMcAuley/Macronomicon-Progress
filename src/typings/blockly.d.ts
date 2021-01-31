@@ -1,6 +1,6 @@
 import 'blockly';
 
-type blocks = 'find_entity';
+type blocks = 'find_entity' | 'say_aloud' | 'entity_name';
 
 declare module 'blockly' {
     type BlocklyOptionsX = Omit<BlocklyOptions, 'toolbox'>;
@@ -14,6 +14,6 @@ declare module 'blockly' {
     const JavaScript: Generator & {
         ORDER_NONE: number;
     } & {
-            [_ in blocks]: (block: Blockly.Block) => string;
+            [_ in blocks]: (block: Blockly.Block) => string | [string, any];
         };
 }
