@@ -1,0 +1,35 @@
+{
+    "search.exclude": {
+        "**/.yarn": true,
+        "**/.pnp.*": true
+    },
+    "eslint.nodePath": ".yarn/sdks",
+    "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
+    "typescript.tsdk": ".yarn/sdks/typescript/lib",
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+    "prettier.packageManager": "yarn",
+    "importSorter.generalConfiguration.sortOnBeforeSave": true,
+    "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.type": "newLineEachExpressionAfterCountLimitExceptIfOnlyOne",
+    "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.count": 100,
+    "importSorter.importStringConfiguration.tabSize": 2,
+    "importSorter.importStringConfiguration.trailingComma": "multiLine",
+    "importSorter.sortConfiguration.importPaths.direction": "asc",
+    "importSorter.sortConfiguration.joinImportPaths": true,
+    "importSorter.sortConfiguration.customOrderingRules.defaultOrderLevel": 20,
+    "importSorter.sortConfiguration.customOrderingRules.rules": [
+        {
+            "regex": "react",
+            "orderLevel": 15,
+            "numberOfEmptyLinesAfterGroup": 1
+        },
+        {
+            "regex": "\\./[^/]+/.*$",
+            "orderLevel": 25,
+            "numberOfEmptyLinesAfterGroup": 0
+        },
+        {
+            "regex": "\\./[^/]+$",
+            "orderLevel": 30
+        }
+    ]
+}

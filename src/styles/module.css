@@ -1,0 +1,11 @@
+@import url('https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css');
+
+body,
+#app {
+    width: 100vw;
+    height: 100vh;
+}
+
+#blocklyButton {
+    float: right;
+}

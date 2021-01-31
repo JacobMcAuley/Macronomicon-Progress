@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "target": "es2020",
+        "module": "commonjs",
+        "baseUrl": "./",
+        "rootDir": "./src",
+        "outDir": "./dist/",
+        "strict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "sourceMap": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "incremental": false,
+        "types": ["foundry-vtt-types"],
+        "noErrorTruncation": true
+    },
+    "include": ["./src/**/*.ts", "./src/typings/blockly.d.ts", "./src/typings/global.d.ts"],
+    "exclude": []
+}

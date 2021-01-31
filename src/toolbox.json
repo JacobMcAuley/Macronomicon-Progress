@@ -1,0 +1,35 @@
+{
+    "kind": "categoryToolbox",
+    "contents": [
+        {
+            "kind": "category",
+            "name": "Entity",
+            "contents": [
+                {
+                    "kind": "block",
+                    "type": "find_entity"
+                },
+                {
+                    "kind": "block",
+                    "type": "entity_name"
+                },
+                {
+                    "kind": "block",
+                    "type": "entity_id"
+                },
+                {
+                    "kind": "block",
+                    "type": "entity_attribute_filter"
+                },
+                {
+                    "kind": "block",
+                    "type": "entity_selected_filter"
+                },
+                {
+                    "kind": "block",
+                    "type": "update_entity_attribute"
+                }
+            ]
+        }
+    ]
+}
