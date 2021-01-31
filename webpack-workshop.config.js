@@ -4,6 +4,7 @@ const baseConfig = require('./webpack.config');
 
 module.exports = {
    ...baseConfig,
+   entry: './src/workshop.ts',
     devServer: {
         hot: true,
         contentBase: [path.join(__dirname, 'module/')],

@@ -38,6 +38,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["@types/eslint", "npm:7.2.6"],
+            ["@types/lodash.merge", "npm:4.6.6"],
             ["@types/prettier", "npm:2.1.6"],
             ["@types/webpack-env", "npm:1.16.0"],
             ["@typescript-eslint/eslint-plugin", "virtual:13f26415ab6cfa2b77f5de0ac5a805046a4807521f239380c359b16e543aabf9325787b3b1bbdc2abe5b352a3962b7c6c2441458ba8d9c13c7e2f411f71d18e1#npm:4.14.1"],
@@ -49,6 +50,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint", "npm:7.18.0"],
             ["foundry-vtt-types", "https://github.com/League-of-Foundry-Developers/foundry-vtt-types.git#commit=f2f9c16b664eede59ec8dfce729ba887c48e2268"],
             ["html-webpack-plugin", "virtual:13f26415ab6cfa2b77f5de0ac5a805046a4807521f239380c359b16e543aabf9325787b3b1bbdc2abe5b352a3962b7c6c2441458ba8d9c13c7e2f411f71d18e1#npm:4.5.1"],
+            ["lodash.merge", "npm:4.6.2"],
             ["pnp-webpack-plugin", "npm:1.6.4"],
             ["prettier", "npm:2.2.1"],
             ["rxjs", "npm:6.6.3"],
@@ -733,6 +735,25 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@types/keyv", "npm:3.1.1"],
             ["@types/node", "npm:14.14.22"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/lodash", [
+        ["npm:4.14.168", {
+          "packageLocation": "./.yarn/cache/@types-lodash-npm-4.14.168-2d65abe211-9a4e25f89f.zip/node_modules/@types/lodash/",
+          "packageDependencies": [
+            ["@types/lodash", "npm:4.14.168"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/lodash.merge", [
+        ["npm:4.6.6", {
+          "packageLocation": "./.yarn/cache/@types-lodash.merge-npm-4.6.6-1bd609f0f2-63967ce152.zip/node_modules/@types/lodash.merge/",
+          "packageDependencies": [
+            ["@types/lodash.merge", "npm:4.6.6"],
+            ["@types/lodash", "npm:4.14.168"]
           ],
           "linkType": "HARD",
         }]
@@ -4096,6 +4117,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["foundry-vtt-macronomicon", "workspace:."],
             ["@types/eslint", "npm:7.2.6"],
+            ["@types/lodash.merge", "npm:4.6.6"],
             ["@types/prettier", "npm:2.1.6"],
             ["@types/webpack-env", "npm:1.16.0"],
             ["@typescript-eslint/eslint-plugin", "virtual:13f26415ab6cfa2b77f5de0ac5a805046a4807521f239380c359b16e543aabf9325787b3b1bbdc2abe5b352a3962b7c6c2441458ba8d9c13c7e2f411f71d18e1#npm:4.14.1"],
@@ -4107,6 +4129,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint", "npm:7.18.0"],
             ["foundry-vtt-types", "https://github.com/League-of-Foundry-Developers/foundry-vtt-types.git#commit=f2f9c16b664eede59ec8dfce729ba887c48e2268"],
             ["html-webpack-plugin", "virtual:13f26415ab6cfa2b77f5de0ac5a805046a4807521f239380c359b16e543aabf9325787b3b1bbdc2abe5b352a3962b7c6c2441458ba8d9c13c7e2f411f71d18e1#npm:4.5.1"],
+            ["lodash.merge", "npm:4.6.2"],
             ["pnp-webpack-plugin", "npm:1.6.4"],
             ["prettier", "npm:2.2.1"],
             ["rxjs", "npm:6.6.3"],
@@ -5674,6 +5697,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/lodash-npm-4.17.20-c0db62021c-c62101d250.zip/node_modules/lodash/",
           "packageDependencies": [
             ["lodash", "npm:4.17.20"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["lodash.merge", [
+        ["npm:4.6.2", {
+          "packageLocation": "./.yarn/cache/lodash.merge-npm-4.6.2-77cb4416bf-4e2bb42a87.zip/node_modules/lodash.merge/",
+          "packageDependencies": [
+            ["lodash.merge", "npm:4.6.2"]
           ],
           "linkType": "HARD",
         }]

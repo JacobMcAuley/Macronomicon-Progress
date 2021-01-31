@@ -1,11 +1,13 @@
 import * as Blockly from 'blockly';
+import merge from 'lodash.merge';
 
 import './blocks';
 
 import toolbox from './toolbox.json';
 
-export const createWorkspace = (selector: string): Blockly.Workspace => {
-    return Blockly.inject(selector, {
+
+export const createWorkspace = (selector: string, options: Blockly.BlocklyOptions = {}): Blockly.Workspace => {
+    return Blockly.inject(selector, merge({
         grid: {
             colour: '#ccc',
             length: 3,
@@ -24,5 +26,5 @@ export const createWorkspace = (selector: string): Blockly.Workspace => {
             startScale: 1.0,
             wheel: true,
         },
-    });
+    }, options));
 };
