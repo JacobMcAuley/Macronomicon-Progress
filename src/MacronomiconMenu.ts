@@ -1,4 +1,5 @@
 import * as Blockly from 'blockly';
+import { formatCode } from './code-formatter';
 
 import { createWorkspace } from './workspace';
 
@@ -22,7 +23,7 @@ export class MacronomiconMenu extends FormApplication {
     activateListeners(html) {
         const workspace = createWorkspace('macronomicon-workspace');
         $('#macronomicon-convert').on('click', async () => {
-            const code = Blockly.JavaScript.workspaceToCode(workspace);
+            const code = formatCode(Blockly.JavaScript.workspaceToCode(workspace));
             const macro = await Macro.create({
                 command: code,
                 name: 'New Macro',

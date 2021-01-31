@@ -22,12 +22,12 @@ Blockly.Blocks['say_aloud'] = {
 
 
 Blockly.JavaScript['say_aloud'] = function(block) {
-  const msg = Blockly.JavaScript.valueToCode(block, 'CHAT_MESSAGE_VALUE', Blockly.JavaScript.ORDER_NONE);
+  const msg = block.getFieldValue('CHAT_MESSAGE_INPUT');
 
   return `
   ChatMessage.create({
       user: game.user._id,
       speaker: ChatMessage.getSpeaker({token: canvas.tokens.controlled[0]}),
-      content: ${msg}
+      content: "${msg}"
   }, {chatBubble : true})`;
 }
