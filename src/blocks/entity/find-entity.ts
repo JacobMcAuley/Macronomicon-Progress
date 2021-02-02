@@ -1,5 +1,4 @@
 import * as Blockly from 'blockly';
-import { formatCode } from '../../code-formatter';
 
 import { BlockNames, BlockTypes } from '../block-definitions';
 
@@ -40,9 +39,7 @@ Blockly.JavaScript[BlockNames.FindEntity] = (block) => {
     const entityTypePath = block.getFieldValue('FIELD_DROPDOWN_ENTITY_TYPE');
     const entityFilter = Blockly.JavaScript.valueToCode(block, 'INPUT_ENTITY_FILTER', Blockly.JavaScript.ORDER_ATOMIC);
     // TODO: Assemble JavaScript into code variable.
-    const code = formatCode(`
-        ${entityTypePath}.find(${entityFilter})
-    `);
+    const code = `${entityTypePath}.find(${entityFilter})`;
     // TODO: Change ORDER_NONE to the correct strength.
     return code;
 };

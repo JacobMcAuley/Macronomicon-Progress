@@ -15,7 +15,7 @@
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
         "incremental": false,
-        "types": ["foundry-vtt-types"],
+        "types": ["foundry-vtt-types", "resize-observer-browser"],
         "noErrorTruncation": true
     },
     "include": ["./src/**/*.ts", "./src/typings/blockly.d.ts", "./src/typings/global.d.ts"],

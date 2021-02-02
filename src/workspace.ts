@@ -2,11 +2,13 @@ import * as Blockly from 'blockly';
 import merge from 'lodash.merge';
 
 import './blocks';
-import { BlockNames } from './blocks/block-definitions';
 
 import toolbox from './toolbox.json';
 
-export const createWorkspace = (selector: string, options: Blockly.BlocklyOptions = {}): Blockly.Workspace => {
+export const createWorkspace = (
+    selector: string | Element,
+    options: Blockly.BlocklyOptions = {},
+): Blockly.Workspace => {
     return Blockly.inject(
         selector,
         merge(

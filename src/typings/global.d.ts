@@ -3,6 +3,11 @@ declare module '*.css' {
     export = Style;
 }
 
+declare module '*.scss' {
+    const Style: unknown;
+    export = Style;
+}
+
 declare module '*.json' {
     const json: import('ts-toolbelt').Misc.JSON.Object;
     export = json;

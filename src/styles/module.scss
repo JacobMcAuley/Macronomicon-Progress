@@ -1,0 +1,83 @@
+@use "sass:string";
+
+@import url('https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css');
+
+$modes: 'code', 'blocks';
+
+// Get the macronomicon component by
+@function ux($type: 'component', $value: '') {
+    @if string.length($value) >= 1 {
+        @return '[data-macronomicon-#{$type}="#{$value}"]';
+    } @else {
+        @return '[data-macronomicon-#{$type}]';
+    }
+}
+
+.app.window-app.sheet.macro-sheet {
+    .macronomicon-size-fix.form-group.command {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: initial;
+        align-items: stretch;
+
+        > * {
+            height: auto;
+            flex: 0 0 auto;
+        }
+
+        > textarea,
+        > .form-group.furnace-macro-command {
+            flex: 1 1 auto;
+        }
+
+        #{ux($value: "editor-mode-switch")} {
+            border: 2px groove #f0f0e0;
+            display: flex;
+            width: auto;
+        }
+
+        #{ux($value: "editor-mode-switch-button")} {
+            margin: 0;
+            border: none;
+            border-radius: 0;
+
+            &:focus,
+            &:active {
+                outline: none;
+                box-shadow: none;
+            }
+        }
+
+        #{ux($value: "workspace-wrapper")} {
+            display: flex;
+            flex-direction: row;
+            flex: 1 1 auto;
+            height: auto;
+            align-items: stretch;
+        }
+
+        #{ux($value: "workspace")} {
+            flex: 1 1 auto;
+        }
+    }
+
+    @each $mode in $modes {
+        &#{ux("mode", $value: $mode)} {
+            #{ux($value: "editor-mode-switch-button")}#{ux("action", $mode)} {
+                background: #1b5a2c69;
+                color: #ffffff;
+                text-shadow: 1px 1px 1px #000;
+            }
+        }
+    }
+}
+
+body,
+body > #macronomicon-workspace {
+    width: 100vw;
+    height: 100vh;
+}
+
+#macronomicon-convert {
+    float: right;
+}

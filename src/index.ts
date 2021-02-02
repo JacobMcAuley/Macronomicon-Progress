@@ -1,9 +1,9 @@
-import * as Blockly from 'blockly';
+import 'blockly';
+
+import './styles/module.scss';
 
 import './blocks';
 
-import { MacronomiconMenu } from './MacronomiconMenu';
+import { renderMacroConfig } from './editor/editor';
 
-(window as any).foo = () => {
-    new MacronomiconMenu().render(true);
-};
+Hooks.on('renderMacroConfig', renderMacroConfig);
