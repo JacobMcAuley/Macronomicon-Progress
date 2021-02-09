@@ -8,7 +8,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /.ts?$/,
+                test: /.tsx?$/,
                 exclude: /node_modules/,
                 use: [{ loader: require.resolve('ts-loader'), options: { transpileOnly: true } }],
             },
@@ -31,7 +31,7 @@ module.exports = {
     },
     resolve: {
         // Tell Webpack what extensions we're looking for
-        extensions: ['.ts', '.js', '.css'],
+        extensions: ['.tsx', '.ts', '.js', '.scss'],
     },
     output: {
         filename: 'module.js',

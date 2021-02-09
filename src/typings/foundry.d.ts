@@ -1,2 +1,3 @@
-declare const Macro: any;
-declare const MacroDirectory: any;
+declare interface MacroConfig extends EntitySheetConfig<unknown> {
+    object: Macro;
+}

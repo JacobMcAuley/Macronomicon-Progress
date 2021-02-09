@@ -1,15 +1,40 @@
 {
-  "root": true,
-  "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint"],
-  "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended"
-  ],
-  "settings": {},
-  "rules": {
-    "no-duplicate-imports": "error",
-    "sort-keys": "error"
-  }
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "sourceType": "module",
+        "project": "./tsconfig.json"
+    },
+    "plugins": ["@typescript-eslint", "react"],
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react-hooks/recommended",
+        "plugin:react/recommended"
+    ],
+    "env": {
+        "browser": true,
+        "jquery": true
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
+    "rules": {
+        "@typescript-eslint/no-shadow": ["error"],
+        "function-call-argument-newline": ["error", "consistent"],
+        "no-duplicate-imports": "error",
+        "react/prop-types": "off",
+        "sort-keys": "error",
+        "indent": ["error", 4, { "CallExpression": {"arguments": "first"} }],
+        "quote-props": ["error", "as-needed"],
+        "quotes": ["error", "single"], 
+        "comma-dangle": ["error", "always-multiline"]
+    }
 }

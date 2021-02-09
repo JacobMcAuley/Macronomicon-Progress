@@ -1,5 +1,5 @@
 import * as Blockly from 'blockly';
-import { formatCode } from '../../code-formatter';
+
 import { BlockNames, BlockTypes } from '../block-definitions';
 
 const blocks = {
@@ -61,7 +61,7 @@ Blockly.Blocks['entity_attribute_filter'] = {
 
 /* Generators */
 Blockly.JavaScript[BlockNames.EntitySelectedFilter] = function () {
-    const code = `((entity) => entity.data._id === canvas.tokens.controlled[0]?.id)`;
+    const code = '((entity) => entity.data._id === canvas.tokens.controlled[0]?.id)';
     return [code, Blockly.JavaScript.ORDER_NONE];
 };
 

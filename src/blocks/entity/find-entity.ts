@@ -22,6 +22,7 @@ const BlockJSON = {
         colour: 100,
         helpUrl: '',
         message0: 'get %1 by %2',
+        previousStatement: null,
         setNextStatement: [true, BlockTypes.Entity],
         tooltip: 'Find',
     },

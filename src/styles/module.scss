@@ -42,32 +42,37 @@ $modes: 'code', 'blocks';
             border-radius: 0;
 
             &:focus,
-            &:active {
+            &:active,
+            &:hover {
                 outline: none;
                 box-shadow: none;
+            }
+
+            &[disabled] {
+                opacity: 0.2;
+                filter: grayscale(0);
+                background: rgba(204, 204, 204, 0.459);
+                cursor: not-allowed;
+            }
+
+            &.selected {
+                background: #1b5a2c69;
+                color: #ffffff;
+                text-shadow: 1px 1px 1px #000;
             }
         }
 
         #{ux($value: "workspace-wrapper")} {
             display: flex;
             flex-direction: row;
-            flex: 1 1 auto;
-            height: auto;
+            flex: 1 0 auto;
             align-items: stretch;
+            margin: 0;
+            padding: 0;
         }
 
         #{ux($value: "workspace")} {
-            flex: 1 1 auto;
-        }
-    }
-
-    @each $mode in $modes {
-        &#{ux("mode", $value: $mode)} {
-            #{ux($value: "editor-mode-switch-button")}#{ux("action", $mode)} {
-                background: #1b5a2c69;
-                color: #ffffff;
-                text-shadow: 1px 1px 1px #000;
-            }
+            flex: 1 0 auto;
         }
     }
 }

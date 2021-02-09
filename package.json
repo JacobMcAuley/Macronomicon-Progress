@@ -4,18 +4,21 @@
         "build": "yarn webpack",
         "serve": "yarn webpack serve",
         "workshop": "yarn webpack serve -c webpack-workshop.config.js ",
-        "lint": "yarn eslint . --ext .ts",
-        "format": "yarn prettier --config .prettierrc 'src/**/*.ts' --write"
+        "lint": "yarn eslint . --ext .ts"
     },
     "dependencies": {
         "blockly": "^4.20201217.0",
         "lodash.merge": "^4.6.2",
+        "react": "latest",
+        "react-dom": "latest",
         "rxjs": "^6.6.3"
     },
     "devDependencies": {
         "@types/eslint": "^7.2.6",
         "@types/lodash.merge": "^4.6.6",
         "@types/prettier": "^2.1.6",
+        "@types/react": "^17",
+        "@types/react-dom": "^17",
         "@types/resize-observer-browser": "^0.1.5",
         "@types/sass": "^1",
         "@types/webpack-env": "^1.16.0",
@@ -25,6 +28,8 @@
         "copy-webpack-plugin": "^7.0.0",
         "css-loader": "^5.0.1",
         "eslint": "^7.19.0",
+        "eslint-plugin-react": "latest",
+        "eslint-plugin-react-hooks": "^4.2.0",
         "foundry-vtt-types": "League-of-Foundry-Developers/foundry-vtt-types#foundry-0.7.9",
         "html-webpack-plugin": "^4.5.1",
         "pnp-webpack-plugin": "^1.6.4",

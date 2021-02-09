@@ -1,5 +1,6 @@
 import 'blockly';
-import { BlockNames } from 'src/blocks/block-definitions';
+
+import { BlockNames } from '../blocks/block-definitions';
 
 type blocks = BlockNames;
 
@@ -48,10 +49,28 @@ declare module 'blockly' {
         interface BlocklyOptions extends BlocklyOptionsX {
             toolbox?: Json;
         }
+
+
+    }
+
+
+    namespace Events {
+        class Change__Class {
+            type: string;
+            name: string;
+        }
+
+        class Create {
+            name: string;
+        }
+    }
+
+    interface Workspace {
+        injectionDiv_: HTMLElement | null;
     }
 
     type Blocks = {
-        [_ in blocks]: (block: Block) => string | [string, any];
+        [_ in blocks]: (block: Block) => string | [string, number];
     } &
         {
             [_ in keyof typeof JavaScriptOrders]: typeof JavaScriptOrders[_];

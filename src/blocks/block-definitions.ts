@@ -1,4 +1,5 @@
 export enum BlockNames {
+    Base = 'macro_base',
     EntityAttributeFilter = 'entity_attribute_filter',
     EntityIdAttribute = 'entity_id_attribute',
     EntityNameAttribute = 'entity_name_attribute',

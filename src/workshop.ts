@@ -1,10 +1,8 @@
 import * as Blockly from 'blockly';
 
-import './blocks';
-
-import { createWorkspace } from './workspace';
-
 import './styles/module.css'; // Our styles
+import './blocks';
+import { createWorkspace } from './workspace';
 
 document.addEventListener('DOMContentLoaded', function () {
     const workspace = createWorkspace('macronomicon-workspace', {

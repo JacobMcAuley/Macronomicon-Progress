@@ -1,15 +1,14 @@
-import * as Blockly from 'blockly';
+import Blockly from 'blockly';
 import merge from 'lodash.merge';
 
 import './blocks';
-
 import toolbox from './toolbox.json';
 
 export const createWorkspace = (
     selector: string | Element,
     options: Blockly.BlocklyOptions = {},
 ): Blockly.Workspace => {
-    return Blockly.inject(
+    const workspace = Blockly.inject(
         selector,
         merge(
             {
@@ -20,19 +19,35 @@ export const createWorkspace = (
                     spacing: 20,
                 },
                 media: 'modules/macronomicon/media/',
+                move: {
+                    drag: true,
+                    scrollbars: false,
+                    wheel: true,
+                },
                 toolbox,
                 trashcan: false,
                 zoom: {
-                    controls: true,
-                    maxScale: 3,
-                    minScale: 0.3,
-                    pinch: true,
-                    scaleSpeed: 1.2,
-                    startScale: 1.0,
+                    controls: false,
+                    maxScale: 1,
+                    minScale: 1,
+                    startScale: 1,
                     wheel: true,
                 },
-            },
+            } as Blockly.Blockly.BlocklyOptions,
             options,
         ),
     );
+
+    const xml = '<xml><block type="macro_base" deletable="false" movable="false"></block></xml>';
+    Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(xml), workspace);
+
+    workspace.addChangeListener(Blockly.Events.disableOrphans);
+
+    workspace.addChangeListener((event: Blockly.Events.BlockBase) => {
+        if ((CONFIG.debug as unknown as { blocks: boolean; }).blocks === true) {
+            console.log(event);
+        }
+    });
+
+    return workspace;
 };
