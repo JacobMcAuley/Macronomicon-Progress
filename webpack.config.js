@@ -51,11 +51,7 @@ module.exports = {
                 {
                     from: path.join(path.dirname(require.resolve(`blockly`)), 'media'),
                     to: path.resolve(__dirname, 'module/media'),
-                },
-                {
-                    from: path.resolve(__dirname, 'src/templates'),
-                    to: path.resolve(__dirname, 'module/templates'),
-                },
+                }
             ],
         }),
     ],

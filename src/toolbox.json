@@ -3,31 +3,71 @@
     "contents": [
         {
             "kind": "category",
-            "name": "Entity",
+            "name": "Foundry Core",
             "contents": [
                 {
-                    "kind": "block",
-                    "type": "find_entity"
-                },
+                    "kind": "category",
+                    "name": "Tokens",
+                    "contents": [
+                        {
+                            "kind": "category",
+                            "name": "Find",
+                            "contents": [
+                                {
+                                    "kind": "block",
+                                    "type": "token_query_selected_tokens"
+                                },
+                                {
+                                    "kind": "block",
+                                    "type": "token_query_scene_tokens"
+                                }
+                            ]
+                        },
+                        {
+                            "kind": "category",
+                            "name": "Filter",
+                            "contents": [
+                                {
+                                    "kind": "block",
+                                    "type": "filter_hostile"
+                                },
+                                {
+                                    "kind": "block",
+                                    "type": "filter_friendly"
+                                }
+                            ]
+                        },
+                        {
+                            "kind": "category",
+                            "name": "Update",
+                            "contents": [
+                                {
+                                    "kind": "block",
+                                    "type": "apply_healing"
+                                },
+                                {
+                                    "kind": "block",
+                                    "type": "apply_damage"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "kind": "category",
+            "name": "Language",
+            "contents": [
                 {
-                    "kind": "block",
-                    "type": "entity_name_attribute"
-                },
-                {
-                    "kind": "block",
-                    "type": "entity_id_attribute"
-                },
-                {
-                    "kind": "block",
-                    "type": "entity_attribute_filter"
-                },
-                {
-                    "kind": "block",
-                    "type": "entity_selected_filter"
-                },
-                {
-                    "kind": "block",
-                    "type": "say_aloud"
+                    "kind": "category",
+                    "name": "Lists",
+                    "contents": [
+                        {
+                            "kind": "block",
+                            "type": "collection_for_each"
+                        }
+                    ]
                 }
             ]
         }

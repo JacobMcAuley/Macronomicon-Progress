@@ -14,8 +14,12 @@
         "plugin:react/recommended",
         "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
         "plugin:react-hooks/recommended",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "prettier",
+        "prettier/@typescript-eslint",
+        "prettier/react"
     ],
     "env": {
         "browser": true,
@@ -27,14 +31,14 @@
         }
     },
     "rules": {
+        "arrow-body-style": "error",
         "@typescript-eslint/no-shadow": ["error"],
+        "comma-dangle": ["error", "always-multiline"],
         "function-call-argument-newline": ["error", "consistent"],
         "no-duplicate-imports": "error",
-        "react/prop-types": "off",
-        "sort-keys": "error",
-        "indent": ["error", 4, { "CallExpression": {"arguments": "first"} }],
         "quote-props": ["error", "as-needed"],
-        "quotes": ["error", "single"], 
-        "comma-dangle": ["error", "always-multiline"]
+        "quotes": ["error", "single"],
+        "react/prop-types": "off",
+        "sort-keys": "off"
     }
 }

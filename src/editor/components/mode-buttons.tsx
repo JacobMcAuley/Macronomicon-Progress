@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 
-import { MacroEditorMode } from './constants';
+import { MacroEditorMode } from '../constants';
 
 interface ModeButtonsProps {
     lockedMode?: MacroEditorMode;

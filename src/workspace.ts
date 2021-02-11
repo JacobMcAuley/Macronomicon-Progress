@@ -36,18 +36,22 @@ export const createWorkspace = (
             } as Blockly.Blockly.BlocklyOptions,
             options,
         ),
-    );
+    ) as Blockly.Workspace;
 
+    Blockly.Events.disable();
     const xml = '<xml><block type="macro_base" deletable="false" movable="false"></block></xml>';
     Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(xml), workspace);
 
     workspace.addChangeListener(Blockly.Events.disableOrphans);
 
     workspace.addChangeListener((event: Blockly.Events.BlockBase) => {
-        if ((CONFIG.debug as unknown as { blocks: boolean; }).blocks === true) {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+        if (((CONFIG?.debug as unknown) as { blocks: boolean }).blocks === true) {
             console.log(event);
         }
     });
+
+    setTimeout(() => Blockly.Events.enable(), 0);
 
     return workspace;
 };

@@ -49,10 +49,7 @@ declare module 'blockly' {
         interface BlocklyOptions extends BlocklyOptionsX {
             toolbox?: Json;
         }
-
-
     }
-
 
     namespace Events {
         class Change__Class {
@@ -69,12 +66,12 @@ declare module 'blockly' {
         injectionDiv_: HTMLElement | null;
     }
 
-    type Blocks = {
-        [_ in blocks]: (block: Block) => string | [string, number];
-    } &
-        {
-            [_ in keyof typeof JavaScriptOrders]: typeof JavaScriptOrders[_];
-        };
+    type Blocks = { [_ in blocks]: (block: Block) => string | [string, number] } &
+        { [_ in keyof typeof JavaScriptOrders]: typeof JavaScriptOrders[_] };
 
-    const JavaScript: Generator & Blocks;
+    interface JavaScriptGenerator {
+        workspaceToCode: (Workspace: Workspace) => string;
+    }
+
+    const JavaScript: Omit<Generator, 'workspaceToCode'> & Blocks & JavaScriptGenerator;
 }

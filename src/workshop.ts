@@ -1,6 +1,6 @@
 import * as Blockly from 'blockly';
 
-import './styles/module.css'; // Our styles
+import './styles/module.scss'; // Our styles
 import './blocks';
 import { createWorkspace } from './workspace';
 

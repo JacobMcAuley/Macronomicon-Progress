@@ -1,12 +1,12 @@
+import Blockly from 'blockly';
 
-
-import * as Blockly from 'blockly';
-
-import { formatCode } from '../code-formatter';
+import { formatCode } from '../editor/code-formatter';
 import { BlockNames } from './block-definitions';
+import { defineBlock } from './util';
 
-const BlockJSON = {
-    [BlockNames.Base]: {
+defineBlock({
+    name: BlockNames.Base,
+    JSON: {
         args0: [
             {
                 name: 'MACRO_NAME',
@@ -25,25 +25,21 @@ const BlockJSON = {
         inputsInline: true,
         message0: 'Macro %1 %2 %3',
         tooltip: 'Your macro',
-        type: 'macro_base',
     },
-};
-
-Blockly.Blocks[BlockNames.Base] = {
-    init: function (this: Blockly.Block) {
-        this.jsonInit(BlockJSON[BlockNames.Base]);
+    generator: (_, block) => {
+        const code = Blockly.JavaScript.statementToCode(block, 'MACRO_BODY');
+        const macroName = (block.getFieldValue('MACRO_NAME') as string) || `${Date.now()}`;
+        const matched = macroName.match(/([a-zA-Z_]+)/g);
+        const macroFunctionName = `macro_${matched ? matched.join('').toLowerCase() : 'new'}`;
+        try {
+            return formatCode(`
+            (async function ${macroFunctionName}() {
+                ${code}
+            })();
+        `);
+        } catch (e) {
+            console.error(e);
+            return code;
+        }
     },
-};
-
-/* Generators */
-
-Blockly.JavaScript[BlockNames.Base] = (block) => {
-    const code = Blockly.JavaScript.statementToCode(block, 'MACRO_BODY');
-
-    try {
-        return formatCode(code);
-    } catch (e) {
-        console.error(e);
-        return code;
-    }
-};
+});

@@ -2,18 +2,21 @@
     "name": "foundry-vtt-macronomicon",
     "scripts": {
         "build": "yarn webpack",
+        "format": "yarn prettier --config .prettierrc 'src/**/*.ts' --write",
+        "lint": "yarn eslint . --ext .ts",
         "serve": "yarn webpack serve",
-        "workshop": "yarn webpack serve -c webpack-workshop.config.js ",
-        "lint": "yarn eslint . --ext .ts"
+        "workshop": "yarn webpack serve -c webpack-workshop.config.js "
     },
     "dependencies": {
         "blockly": "^4.20201217.0",
+        "debug": "^4.3.1",
         "lodash.merge": "^4.6.2",
         "react": "latest",
         "react-dom": "latest",
         "rxjs": "^6.6.3"
     },
     "devDependencies": {
+        "@types/debug": "^4",
         "@types/eslint": "^7.2.6",
         "@types/lodash.merge": "^4.6.6",
         "@types/prettier": "^2.1.6",
@@ -28,6 +31,7 @@
         "copy-webpack-plugin": "^7.0.0",
         "css-loader": "^5.0.1",
         "eslint": "^7.19.0",
+        "eslint-config-prettier": "^7.2.0",
         "eslint-plugin-react": "latest",
         "eslint-plugin-react-hooks": "^4.2.0",
         "foundry-vtt-types": "League-of-Foundry-Developers/foundry-vtt-types#foundry-0.7.9",

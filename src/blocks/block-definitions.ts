@@ -1,17 +1,41 @@
-export enum BlockNames {
+// General
+enum BlockNames {
     Base = 'macro_base',
-    EntityAttributeFilter = 'entity_attribute_filter',
-    EntityIdAttribute = 'entity_id_attribute',
-    EntityNameAttribute = 'entity_name_attribute',
-    EntitySelectedFilter = 'entity_selected_filter',
-    FindEntity = 'find_entity',
-    SayAloud = 'say_aloud',
-    LogicCompare = 'logic_compare',
+    Chat = 'chat_message',
 }
 
-export enum BlockTypes {
-    Entity = 'Entity',
-    EntityAttribute = 'EntityAttribute',
-    EntityFilter = 'EntityFilter',
-    Operator = 'Operator',
+// Language/Flow
+enum BlockNames {
+    CollectionForEach = 'collection_for_each',
 }
+
+// Token
+enum BlockNames {
+    // Find
+    SelectedTokens = 'token_query_selected_tokens',
+    SceneTokens = 'token_query_scene_tokens',
+
+    // Filter
+    FilterPCs = 'filter_pc_actors',
+    FilterNPCs = 'filter_npc_actors',
+    FilterPCsNamed = 'filter_pcs_named',
+    FilterNPCsNamed = 'filter_npcs_named',
+    FilterFriendly = 'filter_friendly',
+    FilterHostile = 'filter_hostile',
+
+    // Update
+    ApplyDamage = 'apply_damage',
+    ApplyHealing = 'apply_healing',
+}
+
+enum BlockTypes {
+    // Specific
+    ActorCollection = 'ActorCollection', // Can be resolved back to an actor
+    ActorCollectionFilter = 'ActorCollectionFilter',
+    ActorUpdate = 'ActorUpdate',
+
+    // Meta
+    Collection = 'Collection',
+}
+
+export { BlockNames, BlockTypes };

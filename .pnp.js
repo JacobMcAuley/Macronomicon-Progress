@@ -37,6 +37,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {
           "packageLocation": "./",
           "packageDependencies": [
+            ["@types/debug", "npm:4.1.5"],
             ["@types/eslint", "npm:7.2.6"],
             ["@types/lodash.merge", "npm:4.6.6"],
             ["@types/prettier", "npm:2.1.6"],
@@ -51,7 +52,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["blockly", "npm:4.20201217.0"],
             ["copy-webpack-plugin", "virtual:13f26415ab6cfa2b77f5de0ac5a805046a4807521f239380c359b16e543aabf9325787b3b1bbdc2abe5b352a3962b7c6c2441458ba8d9c13c7e2f411f71d18e1#npm:7.0.0"],
             ["css-loader", "virtual:13f26415ab6cfa2b77f5de0ac5a805046a4807521f239380c359b16e543aabf9325787b3b1bbdc2abe5b352a3962b7c6c2441458ba8d9c13c7e2f411f71d18e1#npm:5.0.1"],
+            ["debug", "virtual:360365131be35f502cf349d7b4fecc7f30ad06d56a9b7e8b81293a2c9ff5036bf40d49f1733a2d76bd0ed210259ed49de7d6084cd9578c843c9f35624625aa49#npm:4.3.2"],
             ["eslint", "npm:7.19.0"],
+            ["eslint-config-prettier", "virtual:13f26415ab6cfa2b77f5de0ac5a805046a4807521f239380c359b16e543aabf9325787b3b1bbdc2abe5b352a3962b7c6c2441458ba8d9c13c7e2f411f71d18e1#npm:7.2.0"],
             ["eslint-plugin-react", "virtual:13f26415ab6cfa2b77f5de0ac5a805046a4807521f239380c359b16e543aabf9325787b3b1bbdc2abe5b352a3962b7c6c2441458ba8d9c13c7e2f411f71d18e1#npm:7.22.0"],
             ["eslint-plugin-react-hooks", "virtual:13f26415ab6cfa2b77f5de0ac5a805046a4807521f239380c359b16e543aabf9325787b3b1bbdc2abe5b352a3962b7c6c2441458ba8d9c13c7e2f411f71d18e1#npm:4.2.0"],
             ["foundry-vtt-types", "https://github.com/League-of-Foundry-Developers/foundry-vtt-types.git#commit=f2f9c16b664eede59ec8dfce729ba887c48e2268"],
@@ -630,6 +633,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/keyv", "npm:3.1.1"],
             ["@types/node", "npm:14.14.22"],
             ["@types/responselike", "npm:1.0.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/debug", [
+        ["npm:4.1.5", {
+          "packageLocation": "./.yarn/cache/@types-debug-npm-4.1.5-3464d6c971-416ad24bc5.zip/node_modules/@types/debug/",
+          "packageDependencies": [
+            ["@types/debug", "npm:4.1.5"]
           ],
           "linkType": "HARD",
         }]
@@ -3716,6 +3728,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["eslint-config-prettier", [
+        ["npm:7.2.0", {
+          "packageLocation": "./.yarn/cache/eslint-config-prettier-npm-7.2.0-94db6614b2-6812150ea4.zip/node_modules/eslint-config-prettier/",
+          "packageDependencies": [
+            ["eslint-config-prettier", "npm:7.2.0"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:13f26415ab6cfa2b77f5de0ac5a805046a4807521f239380c359b16e543aabf9325787b3b1bbdc2abe5b352a3962b7c6c2441458ba8d9c13c7e2f411f71d18e1#npm:7.2.0", {
+          "packageLocation": "./.yarn/$$virtual/eslint-config-prettier-virtual-8c6af2492f/0/cache/eslint-config-prettier-npm-7.2.0-94db6614b2-6812150ea4.zip/node_modules/eslint-config-prettier/",
+          "packageDependencies": [
+            ["eslint-config-prettier", "virtual:13f26415ab6cfa2b77f5de0ac5a805046a4807521f239380c359b16e543aabf9325787b3b1bbdc2abe5b352a3962b7c6c2441458ba8d9c13c7e2f411f71d18e1#npm:7.2.0"],
+            ["@types/eslint", "npm:7.2.6"],
+            ["eslint", "npm:7.19.0"]
+          ],
+          "packagePeers": [
+            "@types/eslint",
+            "eslint"
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["eslint-plugin-react", [
         ["npm:7.22.0", {
           "packageLocation": "./.yarn/cache/eslint-plugin-react-npm-7.22.0-e91b193bbf-34927cb488.zip/node_modules/eslint-plugin-react/",
@@ -4305,6 +4339,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["foundry-vtt-macronomicon", "workspace:."],
+            ["@types/debug", "npm:4.1.5"],
             ["@types/eslint", "npm:7.2.6"],
             ["@types/lodash.merge", "npm:4.6.6"],
             ["@types/prettier", "npm:2.1.6"],
@@ -4319,7 +4354,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["blockly", "npm:4.20201217.0"],
             ["copy-webpack-plugin", "virtual:13f26415ab6cfa2b77f5de0ac5a805046a4807521f239380c359b16e543aabf9325787b3b1bbdc2abe5b352a3962b7c6c2441458ba8d9c13c7e2f411f71d18e1#npm:7.0.0"],
             ["css-loader", "virtual:13f26415ab6cfa2b77f5de0ac5a805046a4807521f239380c359b16e543aabf9325787b3b1bbdc2abe5b352a3962b7c6c2441458ba8d9c13c7e2f411f71d18e1#npm:5.0.1"],
+            ["debug", "virtual:360365131be35f502cf349d7b4fecc7f30ad06d56a9b7e8b81293a2c9ff5036bf40d49f1733a2d76bd0ed210259ed49de7d6084cd9578c843c9f35624625aa49#npm:4.3.2"],
             ["eslint", "npm:7.19.0"],
+            ["eslint-config-prettier", "virtual:13f26415ab6cfa2b77f5de0ac5a805046a4807521f239380c359b16e543aabf9325787b3b1bbdc2abe5b352a3962b7c6c2441458ba8d9c13c7e2f411f71d18e1#npm:7.2.0"],
             ["eslint-plugin-react", "virtual:13f26415ab6cfa2b77f5de0ac5a805046a4807521f239380c359b16e543aabf9325787b3b1bbdc2abe5b352a3962b7c6c2441458ba8d9c13c7e2f411f71d18e1#npm:7.22.0"],
             ["eslint-plugin-react-hooks", "virtual:13f26415ab6cfa2b77f5de0ac5a805046a4807521f239380c359b16e543aabf9325787b3b1bbdc2abe5b352a3962b7c6c2441458ba8d9c13c7e2f411f71d18e1#npm:4.2.0"],
             ["foundry-vtt-types", "https://github.com/League-of-Foundry-Developers/foundry-vtt-types.git#commit=f2f9c16b664eede59ec8dfce729ba887c48e2268"],
