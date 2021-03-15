@@ -9,8 +9,10 @@ type ArgNumbers = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '1
 // TODO - Move to Blockly.d.ts
 type BuiltInTypes = 'field_input' | 'input_dummy' | 'input_value' | 'input_statement' | 'field_number';
 
+type CustomTypes = 'field_autocomplete_input';
+
 interface BaseInput {
-    type: BuiltInTypes | typeof BlockNames[keyof typeof BlockNames];
+    type: BuiltInTypes | CustomTypes | typeof BlockNames[keyof typeof BlockNames];
 }
 
 interface DummyInput extends BaseInput {

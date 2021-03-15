@@ -16,9 +16,9 @@
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
         "incremental": false,
-        "types": ["webpack-env", "foundry-vtt-types", "resize-observer-browser"],
+        "types": ["webpack-env", "foundry-vtt-types", "resize-observer-browser", "jest"],
         "noErrorTruncation": true
     },
     "include": ["./src/**/*.ts", "./src/**/*.tsx", "./src/typings/blockly.d.ts", "./src/typings/global.d.ts"],
     "exclude": []
-} 
+}

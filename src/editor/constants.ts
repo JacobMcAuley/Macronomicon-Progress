@@ -13,15 +13,15 @@ export enum MacroEditorMode {
 }
 
 export const BLOCK_TRIGGER_SAVE_EVENTS = [
-    Blockly.Events.BLOCK_CHANGE,
-    Blockly.Events.BLOCK_CREATE,
-    Blockly.Events.BLOCK_DELETE,
-    Blockly.Events.BLOCK_MOVE,
-    Blockly.Events.CHANGE,
-    Blockly.Events.DELETE,
-    Blockly.Events.CREATE,
-    Blockly.Events.MOVE,
-    Blockly.Events.VAR_CREATE,
-    Blockly.Events.VAR_DELETE,
-    Blockly.Events.VAR_RENAME,
+    Blockly.Events.BLOCK_CHANGE as string,
+    Blockly.Events.BLOCK_CREATE as string,
+    Blockly.Events.BLOCK_DELETE as string,
+    Blockly.Events.BLOCK_MOVE as string,
+    Blockly.Events.CHANGE as string,
+    Blockly.Events.DELETE as string,
+    Blockly.Events.CREATE as string,
+    Blockly.Events.MOVE as string,
+    Blockly.Events.VAR_CREATE as string,
+    Blockly.Events.VAR_DELETE as string,
+    Blockly.Events.VAR_RENAME as string,
 ];

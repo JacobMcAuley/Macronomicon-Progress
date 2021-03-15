@@ -51,6 +51,10 @@ declare module 'blockly' {
         }
     }
 
+    interface Block__Class {
+        getFieldValue(name: string): string;
+    }
+
     namespace Events {
         class Change__Class {
             type: string;

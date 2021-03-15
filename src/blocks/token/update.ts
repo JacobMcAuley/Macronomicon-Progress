@@ -20,7 +20,7 @@ defineBlock({
     },
     generator: (_, block) => `{
             const { max, min, value } = getProperty(target.actor, 'data.data.attributes.hp') || {};
-            const heal = Math.clamped(value + ${block.getFieldValue('HEALING_AMOUNT') as string}, min, max);
+            const heal = Math.clamped(value + ${block.getFieldValue('HEALING_AMOUNT')}, min, max);
             await target.actor.update({['data.attributes.hp.value']: heal});
         }`,
 });
@@ -46,7 +46,7 @@ defineBlock({
     generator: (_, block) => {
         return `{
             const { max, min, value } = getProperty(target.actor, 'data.data.attributes.hp') || {};
-            const damage = Math.clamped(value - ${block.getFieldValue('DAMAGE_AMOUNT') as string}, min, max);
+            const damage = Math.clamped(value - ${block.getFieldValue('DAMAGE_AMOUNT')}, min, max);
             await target.actor.update({['data.attributes.hp.value']: damage});
         }`;
     },

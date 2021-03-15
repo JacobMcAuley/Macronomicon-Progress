@@ -14,3 +14,5 @@ declare namespace SocketInterface.Requests {
         parentType?: string;
     }
 }
+
+declare const _token: Token | undefined;

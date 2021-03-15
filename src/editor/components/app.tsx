@@ -2,7 +2,6 @@ import React, { FunctionComponent, useCallback, useEffect, useRef, useState } fr
 import { createPortal } from 'react-dom';
 
 import Blockly from 'blockly';
-import merge from 'lodash.merge';
 
 import { loggers } from '../../debug';
 import {

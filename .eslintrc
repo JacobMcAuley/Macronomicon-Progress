@@ -31,11 +31,18 @@
         }
     },
     "rules": {
-        "arrow-body-style": "error",
         "@typescript-eslint/no-shadow": ["error"],
+        "arrow-body-style": "error",
         "comma-dangle": ["error", "always-multiline"],
         "function-call-argument-newline": ["error", "consistent"],
         "no-duplicate-imports": "error",
+        "prefer-const": [
+            "error",
+            {
+                "destructuring": "any",
+                "ignoreReadBeforeAssign": false
+            }
+        ],
         "quote-props": ["error", "as-needed"],
         "quotes": ["error", "single"],
         "react/prop-types": "off",

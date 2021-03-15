@@ -34,6 +34,18 @@
                                 {
                                     "kind": "block",
                                     "type": "filter_friendly"
+                                },
+                                {
+                                    "kind": "block",
+                                    "type": "filter_pc"
+                                },
+                                {
+                                    "kind": "block",
+                                    "type": "filter_npc"
+                                },
+                                {
+                                    "kind": "block",
+                                    "type": "filter_pcs_named"
                                 }
                             ]
                         },
@@ -68,6 +80,16 @@
                             "type": "collection_for_each"
                         }
                     ]
+                }
+            ]
+        },
+        {
+            "kind": "category",
+            "name": "Test",
+            "contents": [
+                {
+                    "kind": "block",
+                    "type": "test_block"
                 }
             ]
         }
