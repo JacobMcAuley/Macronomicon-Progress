@@ -7,7 +7,7 @@ import toolbox from './toolbox.json';
 export const createWorkspace = (
     selector: string | Element,
     options: Blockly.BlocklyOptions = {},
-): Blockly.Workspace => {
+): Blockly.WorkspaceSvg => {
     const workspace = Blockly.inject(
         selector,
         merge(
@@ -33,10 +33,10 @@ export const createWorkspace = (
                     startScale: 1,
                     wheel: true,
                 },
-            } as Blockly.Blockly.BlocklyOptions,
+            },
             options,
         ),
-    ) as Blockly.Workspace;
+    );
 
     Blockly.Events.disable();
     const xml = '<xml><block type="macro_base" deletable="false" movable="false"></block></xml>';

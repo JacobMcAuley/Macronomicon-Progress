@@ -44,7 +44,7 @@
             }
         ],
         "quote-props": ["error", "as-needed"],
-        "quotes": ["error", "single"],
+        "quotes": ["error", "single", { "allowTemplateLiterals": true }],
         "react/prop-types": "off",
         "sort-keys": "off"
     }

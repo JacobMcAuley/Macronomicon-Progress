@@ -71,7 +71,7 @@ interface AppProps {
 export const App: FunctionComponent<AppProps> = ({ appId, portalContainer, codeEditor$, config }) => {
     log('App:render');
     const code = useRef<string>('');
-    const workspace = useRef<Blockly.Workspace | null>(null);
+    const workspace = useRef<Blockly.WorkspaceSvg | null>(null);
 
     const lockedMode =
         (config.object.getFlag(MACRO_FLAG_NS, MacroFlags.EditorMode) as MacroEditorMode | null) ?? undefined;
@@ -136,7 +136,7 @@ export const App: FunctionComponent<AppProps> = ({ appId, portalContainer, codeE
     );
 
     const onWorkspaceRendered = useCallback(
-        (renderedWorkspace: Blockly.Workspace) => {
+        (renderedWorkspace: Blockly.WorkspaceSvg) => {
             log('App:onWorkspaceRendered | renderedWorkspace: %o', renderedWorkspace);
             const $name = jQuery(portalContainer)
                 .closest('.macro-sheet')

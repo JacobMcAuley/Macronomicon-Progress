@@ -10,8 +10,8 @@ const log = loggers.components;
 interface BlockEditorProps {
     isLocked?: boolean;
     onWorkspaceChange: (event: Blockly.Events.Change | Blockly.Events.Create, workspace: Blockly.Workspace) => void;
-    onWorkspaceRendered: (workspace: Blockly.Workspace) => void;
-    workspace: React.MutableRefObject<Blockly.Workspace | null>;
+    onWorkspaceRendered: (workspace: Blockly.WorkspaceSvg) => void;
+    workspace: React.MutableRefObject<Blockly.WorkspaceSvg | null>;
 }
 
 export const BlockEditor: FunctionComponent<BlockEditorProps> = ({
@@ -34,7 +34,9 @@ export const BlockEditor: FunctionComponent<BlockEditorProps> = ({
 
     const onResize = useCallback(() => {
         log('BlockEditor:onResize | workspace: %o', workspace.current);
-        workspace && Blockly.svgResize(workspace.current);
+        if (workspace.current) {
+            Blockly.svgResize(workspace.current);
+        }
     }, [workspace]);
 
     const resize = useRef(new ResizeObserver(() => onResize()));
@@ -49,9 +51,9 @@ export const BlockEditor: FunctionComponent<BlockEditorProps> = ({
                 currentWorkspace === workspace.current,
             );
             // For redraws
-            if (currentWorkspace.injectionDiv_ && container.current.childElementCount === 0) {
-                log('BlockEditor:useLayoutEffect #1 | inject: %o', currentWorkspace.injectionDiv_);
-                container.current.appendChild(currentWorkspace.injectionDiv_);
+            if (currentWorkspace.getInjectionDiv() && container.current.childElementCount === 0) {
+                log('BlockEditor:useLayoutEffect #1 | inject: %o', currentWorkspace.getInjectionDiv());
+                container.current.appendChild(currentWorkspace.getInjectionDiv());
             } else {
                 log('BlockEditor:useLayoutEffect #1 - addChangeListener | handleChange: %o', handleChange);
                 currentWorkspace.addChangeListener((event: Blockly.Events.Change | Blockly.Events.Create) =>
@@ -70,7 +72,9 @@ export const BlockEditor: FunctionComponent<BlockEditorProps> = ({
             const observeTarget = jQuery(container.current).closest('.sheet')[0];
             const observer = resize.current;
             log('BlockEditor:useLayoutEffect #2 | observeTarget: %o', observeTarget);
-            observer.observe(observeTarget);
+            if (observeTarget) {
+                observer.observe(observeTarget);
+            }
             return () => observer.disconnect();
         }
     }, [container, workspace, onWorkspaceRendered, isLocked]);

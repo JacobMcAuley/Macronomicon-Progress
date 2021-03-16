@@ -1,48 +1,45 @@
 {
-  "eslint.validate": [
-    "typescript",
-    "typescriptreact"
-  ],
-  "javascript.suggest.enabled": false,
-  "typescript.suggestionActions.enabled": true,
-  "search.exclude": {
-    "**/.yarn": true,
-    "**/.pnp.*": true
-  },
-  "eslint.nodePath": ".yarn/sdks",
-  "typescript.tsdk": ".yarn/sdks/typescript/lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true,
-  "importSorter.generalConfiguration.sortOnBeforeSave": true,
-  "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.type": "newLineEachExpressionAfterCountLimitExceptIfOnlyOne",
-  "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.count": 100,
-  "importSorter.importStringConfiguration.trailingComma": "multiLine",
-  "importSorter.sortConfiguration.importPaths.direction": "asc",
-  "importSorter.sortConfiguration.joinImportPaths": true,
-  "importSorter.sortConfiguration.customOrderingRules.defaultOrderLevel": 20,
-  "importSorter.sortConfiguration.customOrderingRules.rules": [
-    {
-      "regex": "react",
-      "orderLevel": 15,
-      "numberOfEmptyLinesAfterGroup": 1
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "eslint.nodePath": ".yarn/sdks",
+    "eslint.validate": ["typescript", "typescriptreact"],
+    "importSorter.generalConfiguration.sortOnBeforeSave": true,
+    "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.count": 100,
+    "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.type": "newLineEachExpressionAfterCountLimitExceptIfOnlyOne",
+    "importSorter.importStringConfiguration.trailingComma": "multiLine",
+    "importSorter.sortConfiguration.customOrderingRules.defaultOrderLevel": 20,
+    "importSorter.sortConfiguration.customOrderingRules.rules": [
+        {
+            "numberOfEmptyLinesAfterGroup": 1,
+            "orderLevel": 15,
+            "regex": "react"
+        },
+        {
+            "numberOfEmptyLinesAfterGroup": 0,
+            "orderLevel": 25,
+            "regex": "\\./[^/]+/.*$"
+        },
+        {
+            "orderLevel": 30,
+            "regex": "\\./[^/]+$"
+        }
+    ],
+    "importSorter.sortConfiguration.importPaths.direction": "asc",
+    "importSorter.sortConfiguration.joinImportPaths": true,
+    "javascript.suggest.enabled": false,
+    "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
+    "prettier.requireConfig": true,
+    "prettier.singleQuote": true,
+    "prettier.tabWidth": 4,
+    "prettier.trailingComma": "all",
+    "search.exclude": {
+        "**/.pnp.*": true,
+        "**/.yarn": true
     },
-    {
-      "regex": "\\./[^/]+/.*$",
-      "orderLevel": 25,
-      "numberOfEmptyLinesAfterGroup": 0
-    },
-    {
-      "regex": "\\./[^/]+$",
-      "orderLevel": 30
-    }
-  ],
-  "typescript.format.semicolons": "insert",
-  "typescript.implementationsCodeLens.enabled": true,
-  "typescript.disableAutomaticTypeAcquisition": true,
-  "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
-  "prettier.requireConfig": true,
-  "prettier.singleQuote": true,
-  "prettier.tabWidth": 4,
-  "prettier.trailingComma": "all",
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "typescript.preferences.importModuleSpecifier": "relative"
+    "typescript.disableAutomaticTypeAcquisition": true,
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+    "typescript.format.semicolons": "insert",
+    "typescript.implementationsCodeLens.enabled": true,
+    "typescript.preferences.importModuleSpecifier": "relative",
+    "typescript.suggestionActions.enabled": true,
+    "typescript.tsdk": ".yarn/sdks/typescript/lib"
 }

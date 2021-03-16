@@ -7,7 +7,19 @@ type ColorDefinition = number;
 type ArgNumbers = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10';
 
 // TODO - Move to Blockly.d.ts
-type BuiltInTypes = 'field_input' | 'input_dummy' | 'input_value' | 'input_statement' | 'field_number';
+type BuiltInTypes =
+    | 'field_input'
+    | 'input_dummy'
+    | 'input_value'
+    | 'input_statement'
+    | 'field_number'
+    | 'field_dropdown'
+    | 'field_label'
+    | 'field_image';
+
+type CustomTypes = 'field_autocomplete_input';
+
+type CustomTypes = 'field_autocomplete_input';
 
 type CustomTypes = 'field_autocomplete_input';
 

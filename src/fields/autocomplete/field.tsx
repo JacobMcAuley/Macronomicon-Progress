@@ -86,11 +86,13 @@ class AutocompleteTextInput extends Blockly.FieldTextInput {
 
         const selectedResult = this.results.results[this.resultIndex];
         const currentValue = this.getValue() as string;
-        const nextValue = currentValue.replace(
-            /([@.])([^.@]*?)$/,
-            `$1${selectedResult[0]}${selectedResult[1] === TypeDescriptors.Obj ? '.' : ' '}`,
-        );
-        this.setEditorValue_(nextValue);
+        if (selectedResult) {
+            const nextValue = currentValue.replace(
+                /([@.])([^.@]*?)$/,
+                `$1${selectedResult[0]}${selectedResult[1] === TypeDescriptors.Obj ? '.' : ' '}`,
+            );
+            this.setEditorValue_(nextValue);
+        }
     }
 }
 

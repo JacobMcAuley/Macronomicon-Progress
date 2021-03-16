@@ -4,6 +4,7 @@ import './styles/module.scss'; // Our styles
 import './blocks';
 import { createWorkspace } from './workspace';
 
+
 document.addEventListener('DOMContentLoaded', function () {
     const workspace = createWorkspace('macronomicon-workspace', {
         media: 'media/',

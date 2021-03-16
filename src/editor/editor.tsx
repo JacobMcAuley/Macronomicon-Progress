@@ -18,7 +18,7 @@ Hooks.on('renderMacroConfig', (macroConfig: MacroConfig, html: HTMLElement) => {
 
     const appId = selectors.$sheet.attr('data-appid');
 
-    if (appId) {
+    if (appId && selectors.$commandArea[0] && selectors.$root[0]) {
         render(
             <App
                 appId={appId}
@@ -34,5 +34,7 @@ Hooks.on('renderMacroConfig', (macroConfig: MacroConfig, html: HTMLElement) => {
 Hooks.on('closeMacroConfig', (macroConfig: MacroConfig, html: HTMLElement) => {
     log('closeMacroConfig | %o', macroConfig);
     const selectors = getFormSelectors(html);
-    unmountComponentAtNode(selectors.$root[0]);
+    if (selectors.$root[0]) {
+        unmountComponentAtNode(selectors.$root[0]);
+    }
 });

@@ -11,6 +11,30 @@
                     "contents": [
                         {
                             "kind": "category",
+                            "name": "Attributes",
+                            "contents": [
+                                {
+                                    "kind": "block",
+                                    "type": "retrieve_hp"
+                                },
+                                {
+                                    "kind": "block",
+                                    "type": "retrieve_attribute"
+                                }
+                            ]
+                        },
+                        {
+                            "kind": "category",
+                            "name": "Chat",
+                            "contents": [
+                                {
+                                    "kind": "block",
+                                    "type": "chat_aloud"
+                                }
+                            ]
+                        },
+                        {
+                            "kind": "category",
                             "name": "Find",
                             "contents": [
                                 {
@@ -51,6 +75,36 @@
                         },
                         {
                             "kind": "category",
+                            "name": "Rolls",
+                            "contents": [
+                                {
+                                    "kind": "block",
+                                    "type": "use_weapon"
+                                },
+                                {
+                                    "kind": "block",
+                                    "type": "use_spell"
+                                },
+                                {
+                                    "kind": "block",
+                                    "type": "roll_abilities"
+                                },
+                                {
+                                    "kind": "block",
+                                    "type": "roll_chat"
+                                },
+                                {
+                                    "kind": "block",
+                                    "type": "roll_custom"
+                                },
+                                {
+                                    "kind": "block",
+                                    "type": "roll_predefined"
+                                }
+                            ]
+                        },
+                        {
+                            "kind": "category",
                             "name": "Update",
                             "contents": [
                                 {
@@ -60,6 +114,14 @@
                                 {
                                     "kind": "block",
                                     "type": "apply_damage"
+                                },
+                                {
+                                    "kind": "block",
+                                    "type": "toggle_visibility"
+                                },
+                                {
+                                    "kind": "block",
+                                    "type": "toggle_effect"
                                 }
                             ]
                         }
@@ -80,6 +142,48 @@
                             "type": "collection_for_each"
                         }
                     ]
+                },
+                {
+                    "kind": "category",
+                    "name": "Logic",
+                    "contents": [
+                        {
+                            "kind": "block",
+                            "type": "controls_if"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "logic_compare"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "variables_get_dynamic"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "variables_set_dynamic"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "kind": "category",
+            "name": "Test",
+            "contents": [
+                {
+                    "kind": "block",
+                    "type": "test_block"
+                }
+            ]
+        },
+        {
+            "kind": "category",
+            "name": "Test",
+            "contents": [
+                {
+                    "kind": "block",
+                    "type": "test_block"
                 }
             ]
         },

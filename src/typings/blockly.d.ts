@@ -45,10 +45,13 @@ declare enum JavaScriptOrders {
 declare module 'blockly' {
     type BlocklyOptionsX = Omit<BlocklyOptions, 'toolbox'>;
     type GeneratorX = Generator;
-    namespace Blockly {
-        interface BlocklyOptions extends BlocklyOptionsX {
-            toolbox?: Json;
-        }
+
+    interface Block__Class {
+        getFieldValue(name: string): string;
+    }
+
+    interface Block__Class {
+        getFieldValue(name: string): string;
     }
 
     interface Block__Class {
@@ -64,10 +67,6 @@ declare module 'blockly' {
         class Create {
             name: string;
         }
-    }
-
-    interface Workspace {
-        injectionDiv_: HTMLElement | null;
     }
 
     type Blocks = { [_ in blocks]: (block: Block) => string | [string, number] } &
