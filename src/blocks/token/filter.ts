@@ -4,128 +4,168 @@ import { BlockNames, BlockTypes } from '../block-definitions';
 import { defineBlock } from '../util';
 
 defineBlock({
-    generator: (_, block) => {
-        const collection =
-            Blockly.JavaScript.valueToCode(block, 'TARGET_COLLECTION', Blockly.JavaScript.ORDER_NONE) || '[]';
-        const code = `(${collection})
-            .filter(({ data }) => data.disposition === TOKEN_DISPOSITIONS.HOSTILE)`;
-        return [code, Blockly.JavaScript.ORDER_NONE];
-    },
-    name: BlockNames.FilterHostile,
+    name: BlockNames.TokensFilterHostile,
     JSON: {
-        colour: 50,
         args0: [
             {
-                name: 'TARGET_COLLECTION',
+                name: 'TARGET_TOKEN_COLLECTION',
                 type: 'input_value',
-                check: BlockTypes.ActorCollection,
+                check: BlockTypes.TokenCollection,
             },
         ],
-        message0: 'enemy %1',
-        output: [BlockTypes.Collection, BlockTypes.ActorCollection],
+        message0: '%1 that is hostile',
+        output: BlockTypes.TokenCollection,
         tooltip: 'Only enemy tokens',
     },
+    generator: (_, block) => {
+        const collection =
+            Blockly.JavaScript.valueToCode(block, 'TARGET_TOKEN_COLLECTION', Blockly.JavaScript.ORDER_NONE) || '[]';
+        const code = `(${collection})
+          .filter(({ data }) => data.disposition === TOKEN_DISPOSITIONS.HOSTILE)`;
+        return [code, Blockly.JavaScript.ORDER_NONE];
+    },
 });
 
 defineBlock({
-    generator: (_, block) => {
-        const collection =
-            Blockly.JavaScript.valueToCode(block, 'TARGET_COLLECTION', Blockly.JavaScript.ORDER_NONE) || '[]';
-        const code = `(${collection})
-                .filter(({ data }) => data.disposition === TOKEN_DISPOSITIONS.FRIENDLY)`;
-        return [code, Blockly.JavaScript.ORDER_NONE];
-    },
-    name: BlockNames.FilterFriendly,
+    name: BlockNames.TokensFilterFriendly,
     JSON: {
-        colour: 50,
         args0: [
             {
-                name: 'TARGET_COLLECTION',
+                name: 'TARGET_TOKEN_COLLECTION',
                 type: 'input_value',
-                check: BlockTypes.ActorCollection,
+                check: BlockTypes.TokenCollection,
             },
         ],
-        message0: 'friendly %1',
-        output: [BlockTypes.Collection, BlockTypes.ActorCollection],
+        message0: '%1 that is friendly',
+        output: BlockTypes.TokenCollection,
         tooltip: 'Only friendly tokens',
     },
-});
-
-defineBlock({
     generator: (_, block) => {
         const collection =
-            Blockly.JavaScript.valueToCode(block, 'TARGET_COLLECTION', Blockly.JavaScript.ORDER_NONE) || '[]';
-        const code = `(${collection})
-                .filter(({ actor }) => actor.data.type === "character")`;
+            Blockly.JavaScript.valueToCode(block, 'TARGET_TOKEN_COLLECTION', Blockly.JavaScript.ORDER_NONE) || '[]';
+        const code = `(${collection}).filter(({ data }) => data.disposition === TOKEN_DISPOSITIONS.FRIENDLY)`;
         return [code, Blockly.JavaScript.ORDER_NONE];
-    },
-    name: BlockNames.FilterPCs,
-    JSON: {
-        colour: 50,
-        args0: [
-            {
-                name: 'TARGET_COLLECTION',
-                type: 'input_value',
-                check: BlockTypes.ActorCollection,
-            },
-        ],
-        message0: 'player %1',
-        output: [BlockTypes.Collection, BlockTypes.ActorCollection],
-        tooltip: 'Only PC tokens',
     },
 });
 
 defineBlock({
-    generator: (_, block) => {
-        const collection =
-            Blockly.JavaScript.valueToCode(block, 'TARGET_COLLECTION', Blockly.JavaScript.ORDER_NONE) || '[]';
-        const code = `(${collection})
-                .filter(({ actor }) => actor.data.type === "npc")`;
-        return [code, Blockly.JavaScript.ORDER_NONE];
-    },
-    name: BlockNames.FilterNPCs,
+    name: BlockNames.TokensFilterPlayer,
     JSON: {
-        colour: 50,
         args0: [
             {
-                name: 'TARGET_COLLECTION',
+                name: 'TARGET_TOKEN_COLLECTION',
                 type: 'input_value',
-                check: BlockTypes.ActorCollection,
+                check: BlockTypes.TokenCollection,
             },
         ],
-        message0: 'NPC %1',
-        output: [BlockTypes.Collection, BlockTypes.ActorCollection],
+        message0: '%1 that is a player',
+        output: BlockTypes.TokenCollection,
+        tooltip: 'Only player tokens',
+    },
+    generator: (_, block) => {
+        const collection =
+            Blockly.JavaScript.valueToCode(block, 'TARGET_TOKEN_COLLECTION', Blockly.JavaScript.ORDER_NONE) || '[]';
+        const code = `(${collection}).filter(({ actor }) => actor.data.type === "character")`;
+        return [code, Blockly.JavaScript.ORDER_NONE];
+    },
+});
+
+defineBlock({
+    name: BlockNames.TokensFilterNPC,
+    JSON: {
+        args0: [
+            {
+                name: 'TARGET_TOKEN_COLLECTION',
+                type: 'input_value',
+                check: BlockTypes.TokenCollection,
+            },
+        ],
+        message0: '%1 that is an npc',
+        output: BlockTypes.TokenCollection,
         tooltip: 'Only NPC tokens',
     },
+    generator: (_, block) => {
+        const collection =
+            Blockly.JavaScript.valueToCode(block, 'TARGET_TOKEN_COLLECTION', Blockly.JavaScript.ORDER_NONE) || '[]';
+        const code = `(${collection}).filter(({ actor }) => actor.data.type === "npc")`;
+        return [code, Blockly.JavaScript.ORDER_NONE];
+    },
 });
 
 defineBlock({
-    generator: (_, block) => {
-        const collection =
-            Blockly.JavaScript.valueToCode(block, 'TARGET_COLLECTION', Blockly.JavaScript.ORDER_NONE) || '[]';
-        const targetName = block.getFieldValue('TARGET_NAME');
-        const code = `(${collection})
-                .filter(({ actor }) => actor.data.name.match(new RegExp("${targetName}", "i")))`;
-        return [code, Blockly.JavaScript.ORDER_NONE];
-    },
-    name: BlockNames.FilterPCsNamed,
+    name: BlockNames.TokensFilterSelected,
     JSON: {
-        colour: 50,
         args0: [
             {
-                name: 'TARGET_COLLECTION',
+                name: 'TARGET_TOKEN_COLLECTION',
                 type: 'input_value',
-                check: BlockTypes.ActorCollection,
-            },
-            {
-                name: 'TARGET_NAME',
-                type: 'field_input',
-                check: 'String',
+                check: BlockTypes.TokenCollection,
             },
         ],
-        // inputsInline: true,
-        message0: 'named %2 %1',
-        output: [BlockTypes.Collection, BlockTypes.ActorCollection],
-        tooltip: 'Only named (input)',
+        message0: '%1 that is selected',
+        output: BlockTypes.TokenCollection,
+        tooltip: 'Gets all the currently selected tokens within the scene',
+    },
+    generator: (_, block) => {
+        const collection =
+            Blockly.JavaScript.valueToCode(block, 'TARGET_TOKEN_COLLECTION', Blockly.JavaScript.ORDER_NONE) || '[]';
+        const code = `(${collection}).filter((token) => canvas.tokens.controlled.includes(token))`;
+        return [code, Blockly.JavaScript.ORDER_NONE];
+    },
+});
+
+defineBlock({
+    name: BlockNames.TokensFilterNamed,
+    JSON: {
+        args0: [
+            {
+                name: 'TARGET_TOKEN_COLLECTION',
+                type: 'input_value',
+                check: BlockTypes.TokenCollection,
+            },
+            {
+                name: 'TOKEN_NAME',
+                type: 'field_input',
+                check: BlockTypes.String,
+            },
+        ],
+        message0: '%1 that has token name %2',
+        output: BlockTypes.TokenCollection,
+        tooltip: 'Filter tokens by name',
+    },
+    generator: (_, block) => {
+        const targetName = block.getFieldValue('TOKEN_NAME');
+        const collection =
+            Blockly.JavaScript.valueToCode(block, 'TARGET_TOKEN_COLLECTION', Blockly.JavaScript.ORDER_NONE) || '[]';
+        const code = `(${collection}).filter(({ data }) => data.name === "${targetName}")`;
+        return [code, Blockly.JavaScript.ORDER_NONE];
+    },
+});
+
+defineBlock({
+    name: BlockNames.TokensFilterActorNamed,
+    JSON: {
+        args0: [
+            {
+                name: 'TOKEN_NAME',
+                type: 'field_input',
+                check: BlockTypes.String,
+            },
+            {
+                name: 'TARGET_TOKEN_COLLECTION',
+                type: 'input_value',
+                check: BlockTypes.TokenCollection,
+            },
+        ],
+        message0: '%1 that has an actor named %2',
+        output: BlockTypes.TokenCollection,
+        tooltip: 'Filter tokens by actor name',
+    },
+    generator: (_, block) => {
+        const targetName = block.getFieldValue('TOKEN_NAME');
+        const collection =
+            Blockly.JavaScript.valueToCode(block, 'TARGET_TOKEN_COLLECTION', Blockly.JavaScript.ORDER_NONE) || '[]';
+        const code = `(${collection}).filter(({ actor }) => actor.data.name === "${targetName}")`;
+        return [code, Blockly.JavaScript.ORDER_NONE];
     },
 });

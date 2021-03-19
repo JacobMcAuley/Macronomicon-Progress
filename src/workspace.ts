@@ -1,6 +1,8 @@
 import Blockly from 'blockly';
 import merge from 'lodash.merge';
 
+import { pluginInfo } from './blocks/connection-checker';
+import { getContextToolboxContents } from './blocks/context/context-toolbox';
 import './blocks';
 import toolbox from './toolbox.json';
 
@@ -25,6 +27,9 @@ export const createWorkspace = (
                     wheel: true,
                 },
                 toolbox,
+                plugins: {
+                    ...pluginInfo,
+                },
                 trashcan: false,
                 zoom: {
                     controls: false,
@@ -52,6 +57,8 @@ export const createWorkspace = (
     });
 
     setTimeout(() => Blockly.Events.enable(), 0);
+
+    workspace.registerToolboxCategoryCallback('CONTEXT_VARIABLES', getContextToolboxContents);
 
     return workspace;
 };

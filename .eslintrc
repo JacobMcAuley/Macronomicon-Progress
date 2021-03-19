@@ -17,9 +17,7 @@
         "plugin:@typescript-eslint/recommended-requiring-type-checking",
         "plugin:react-hooks/recommended",
         "plugin:react/recommended",
-        "prettier",
-        "prettier/@typescript-eslint",
-        "prettier/react"
+        "prettier"
     ],
     "env": {
         "browser": true,
@@ -31,7 +29,7 @@
         }
     },
     "rules": {
-        "@typescript-eslint/no-shadow": ["error"],
+        "@typescript-eslint/no-shadow": ["error", { "ignoreFunctionTypeParameterNameValueShadow": false }],
         "arrow-body-style": "error",
         "comma-dangle": ["error", "always-multiline"],
         "function-call-argument-newline": ["error", "consistent"],
@@ -46,6 +44,7 @@
         "quote-props": ["error", "as-needed"],
         "quotes": ["error", "single", { "allowTemplateLiterals": true }],
         "react/prop-types": "off",
-        "sort-keys": "off"
+        "sort-keys": "off",
+        "no-shadow": "off"
     }
 }

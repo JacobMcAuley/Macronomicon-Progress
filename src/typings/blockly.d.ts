@@ -1,4 +1,5 @@
 import 'blockly';
+import { P } from 'ts-toolbelt/out/Object/_api';
 
 import { BlockNames } from '../blocks/block-definitions';
 
@@ -47,14 +48,7 @@ declare module 'blockly' {
     type GeneratorX = Generator;
 
     interface Block__Class {
-        getFieldValue(name: string): string;
-    }
-
-    interface Block__Class {
-        getFieldValue(name: string): string;
-    }
-
-    interface Block__Class {
+        contextParentId?: string | null;
         getFieldValue(name: string): string;
     }
 
@@ -62,6 +56,11 @@ declare module 'blockly' {
         class Change__Class {
             type: string;
             name: string;
+        }
+
+        interface BlockMove {
+            oldParentId?: string;
+            newParentId?: string;
         }
 
         class Create {

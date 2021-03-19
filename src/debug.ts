@@ -1,6 +1,6 @@
 import debug from 'debug';
 
-type LoggerNamespaces = 'hooks' | 'components';
+type LoggerNamespaces = 'hooks' | 'components' | 'blockly';
 
 type Loggers = Record<LoggerNamespaces, debug.Debugger['log']>;
 

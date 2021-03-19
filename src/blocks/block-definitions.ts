@@ -1,80 +1,67 @@
-// General
-enum BlockNames {
-    Base = 'macro_base',
-    Chat = 'chat_message',
-}
-
-// Language/Flow
-enum BlockNames {
-    //Collection
-    CollectionForEach = 'collection_for_each',
-
-    //Control
-    ControlIfStatement = 'control_if_statement',
-}
-
 // Token
 enum BlockNames {
-    //Chat
-    ChatAloud = 'chat_aloud',
+    Base = 'macro_base',
 
-    // Find
-    SelectedTokens = 'token_query_selected_tokens',
-    SceneTokens = 'token_query_scene_tokens',
+    ForEach = 'for_each',
 
-    // Filter
-    FilterPCs = 'filter_pc',
-    FilterNPCs = 'filter_npc',
-    FilterPCsNamed = 'filter_pcs_named',
-    FilterNPCsNamed = 'filter_npcs_named',
-    FilterFriendly = 'filter_friendly',
-    FilterHostile = 'filter_hostile',
+    EntityContext = 'entity_context',
+    EntityContextItem = 'entity_context_item',
 
-    // Update
-    ApplyDamage = 'apply_damage',
-    ApplyHealing = 'apply_healing',
-    ToggleEffect = 'toggle_effect',
-    ToggleVisibility = 'toggle_visibility',
+    TokensFilterFriendly = 'tokens_filter_friendly',
+    TokensFilterHostile = 'tokens_filter_hostile',
+    TokensFilterNPC = 'tokens_filter_npc',
+    TokensFilterNamed = 'tokens_filter_named',
+    TokensFilterActorNamed = 'tokens_filter_actor_named',
+    TokensFilterPlayer = 'tokens_filter_player',
+    TokensFilterSelected = 'tokens_filter_selected',
+    TokensFindScene = 'tokens_find_scene',
 
-    //Information
-    RetrieveHP = 'retrieve_hp',
-    RetrieveAttribute = 'retrieve_attribute',
+    TokenUpdateHeal = 'token_update_heal',
+    TokenUpdateDamage = 'token_update_damage',
 
-    // Rolls
-    UseWeapon = 'use_weapon',
-    UseSpell = 'use_spell',
-    RollChat = 'roll_chat',
-    RollFormula = 'roll_formula', // TODO
-    ReturnRoll = 'return_roll',
-    RollPredefined = 'roll_predefined',
-    RollCustom = 'roll_custom',
-    RollAbilities = 'roll_abilities',
-
-    //Generic
-    UserNumber = 'user_number',
-
-    // Meta
-    TestBlock = 'test_block',
+    UserInputNumber = 'user_input_number',
 }
 
 enum BlockTypes {
-    // Specific
-    ActorCollection = 'ActorCollection', // Can be resolved back to an actor
-    ActorCollectionFilter = 'ActorCollectionFilter',
-    ActorUpdate = 'ActorUpdate',
+    Actor = 'Actor',
+    ActorCollection = 'ActorCollection',
+    Item = 'Item',
+    ItemCollection = 'ItemCollection',
+    Token = 'Token',
+    TokenCollection = 'TokenCollection',
 
-    // Rolls
-    RollInfo = 'RollInfo',
-
-    //Information
-    EntityInfo = 'EntityInfo',
-
-    // Meta
-    Collection = 'Collection',
-    Control = 'Control',
-
-    // Language
     Number = 'Number',
+    String = 'String',
+    Roll = 'Roll',
 }
 
-export { BlockNames, BlockTypes };
+enum BlockColours {
+    Default = '#555555',
+    Green1 = '#8cb369',
+    Green2 = '#5b8e7d',
+    Orange = '#f4a259',
+    Red = '#bc4b51',
+    Yellow = '#f4e285',
+}
+
+export type BlockCollections = Extract<BlockTypes, `${string}Collection`>;
+
+const BlockTypeColourMap: Record<BlockTypes, BlockColours> = {
+    [BlockTypes.Actor]: BlockColours.Green1,
+    [BlockTypes.ActorCollection]: BlockColours.Green1,
+    [BlockTypes.Token]: BlockColours.Green2,
+    [BlockTypes.TokenCollection]: BlockColours.Green2,
+    [BlockTypes.Item]: BlockColours.Orange,
+    [BlockTypes.ItemCollection]: BlockColours.Orange,
+    [BlockTypes.Number]: BlockColours.Red,
+    [BlockTypes.Roll]: BlockColours.Red,
+    [BlockTypes.String]: BlockColours.Yellow,
+};
+
+export const BlockCollectionItemMap: Map<BlockCollections, BlockTypes> = new Map([
+    [BlockTypes.ActorCollection, BlockTypes.Actor],
+    [BlockTypes.ItemCollection, BlockTypes.Item],
+    [BlockTypes.TokenCollection, BlockTypes.Token],
+]);
+
+export { BlockTypeColourMap, BlockNames, BlockTypes, BlockColours };

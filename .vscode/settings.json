@@ -41,5 +41,7 @@
     "typescript.implementationsCodeLens.enabled": true,
     "typescript.preferences.importModuleSpecifier": "relative",
     "typescript.suggestionActions.enabled": true,
-    "typescript.tsdk": ".yarn/sdks/typescript/lib"
+    "typescript.tsdk": ".yarn/sdks/typescript/lib",
+    "eslint.packageManager": "yarn",
+    "eslint.trace.server": "verbose"
 }

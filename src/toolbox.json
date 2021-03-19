@@ -3,197 +3,56 @@
     "contents": [
         {
             "kind": "category",
-            "name": "Foundry Core",
-            "contents": [
-                {
-                    "kind": "category",
-                    "name": "Tokens",
-                    "contents": [
-                        {
-                            "kind": "category",
-                            "name": "Attributes",
-                            "contents": [
-                                {
-                                    "kind": "block",
-                                    "type": "retrieve_hp"
-                                },
-                                {
-                                    "kind": "block",
-                                    "type": "retrieve_attribute"
-                                }
-                            ]
-                        },
-                        {
-                            "kind": "category",
-                            "name": "Chat",
-                            "contents": [
-                                {
-                                    "kind": "block",
-                                    "type": "chat_aloud"
-                                }
-                            ]
-                        },
-                        {
-                            "kind": "category",
-                            "name": "Find",
-                            "contents": [
-                                {
-                                    "kind": "block",
-                                    "type": "token_query_selected_tokens"
-                                },
-                                {
-                                    "kind": "block",
-                                    "type": "token_query_scene_tokens"
-                                }
-                            ]
-                        },
-                        {
-                            "kind": "category",
-                            "name": "Filter",
-                            "contents": [
-                                {
-                                    "kind": "block",
-                                    "type": "filter_hostile"
-                                },
-                                {
-                                    "kind": "block",
-                                    "type": "filter_friendly"
-                                },
-                                {
-                                    "kind": "block",
-                                    "type": "filter_pc"
-                                },
-                                {
-                                    "kind": "block",
-                                    "type": "filter_npc"
-                                },
-                                {
-                                    "kind": "block",
-                                    "type": "filter_pcs_named"
-                                }
-                            ]
-                        },
-                        {
-                            "kind": "category",
-                            "name": "Rolls",
-                            "contents": [
-                                {
-                                    "kind": "block",
-                                    "type": "use_weapon"
-                                },
-                                {
-                                    "kind": "block",
-                                    "type": "use_spell"
-                                },
-                                {
-                                    "kind": "block",
-                                    "type": "roll_abilities"
-                                },
-                                {
-                                    "kind": "block",
-                                    "type": "roll_chat"
-                                },
-                                {
-                                    "kind": "block",
-                                    "type": "roll_custom"
-                                },
-                                {
-                                    "kind": "block",
-                                    "type": "roll_predefined"
-                                }
-                            ]
-                        },
-                        {
-                            "kind": "category",
-                            "name": "Update",
-                            "contents": [
-                                {
-                                    "kind": "block",
-                                    "type": "apply_healing"
-                                },
-                                {
-                                    "kind": "block",
-                                    "type": "apply_damage"
-                                },
-                                {
-                                    "kind": "block",
-                                    "type": "toggle_visibility"
-                                },
-                                {
-                                    "kind": "block",
-                                    "type": "toggle_effect"
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
+            "name": "Context",
+            "custom": "CONTEXT_VARIABLES"
         },
         {
             "kind": "category",
-            "name": "Language",
+            "name": "All",
             "contents": [
                 {
-                    "kind": "category",
-                    "name": "Lists",
-                    "contents": [
-                        {
-                            "kind": "block",
-                            "type": "collection_for_each"
-                        }
-                    ]
+                    "kind": "block",
+                    "type": "for_each"
                 },
                 {
-                    "kind": "category",
-                    "name": "Logic",
-                    "contents": [
-                        {
-                            "kind": "block",
-                            "type": "controls_if"
-                        },
-                        {
-                            "kind": "block",
-                            "type": "logic_compare"
-                        },
-                        {
-                            "kind": "block",
-                            "type": "variables_get_dynamic"
-                        },
-                        {
-                            "kind": "block",
-                            "type": "variables_set_dynamic"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "kind": "category",
-            "name": "Test",
-            "contents": [
+                    "kind": "block",
+                    "type": "entity_context"
+                },
                 {
                     "kind": "block",
-                    "type": "test_block"
-                }
-            ]
-        },
-        {
-            "kind": "category",
-            "name": "Test",
-            "contents": [
+                    "type": "tokens_filter_friendly"
+                },
                 {
                     "kind": "block",
-                    "type": "test_block"
-                }
-            ]
-        },
-        {
-            "kind": "category",
-            "name": "Test",
-            "contents": [
+                    "type": "tokens_filter_hostile"
+                },
                 {
                     "kind": "block",
-                    "type": "test_block"
+                    "type": "tokens_filter_selected"
+                },
+                {
+                    "kind": "block",
+                    "type": "tokens_filter_named"
+                },
+                {
+                    "kind": "block",
+                    "type": "tokens_filter_actor_named"
+                },
+                {
+                    "kind": "block",
+                    "type": "tokens_find_scene"
+                },
+                {
+                    "kind": "block",
+                    "type": "token_update_heal"
+                },
+                {
+                    "kind": "block",
+                    "type": "token_update_damage"
+                },
+                {
+                    "kind": "block",
+                    "type": "user_input_number"
                 }
             ]
         }

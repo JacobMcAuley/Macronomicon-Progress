@@ -1,8 +1,6 @@
 import { Union } from 'ts-toolbelt';
 
-import { BlockNames, BlockTypes } from './block-definitions';
-
-type ColorDefinition = number;
+import { BlockColours, BlockNames, BlockTypes } from './block-definitions';
 
 type ArgNumbers = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10';
 
@@ -15,11 +13,9 @@ type BuiltInTypes =
     | 'field_number'
     | 'field_dropdown'
     | 'field_label'
-    | 'field_image';
-
-type CustomTypes = 'field_autocomplete_input';
-
-type CustomTypes = 'field_autocomplete_input';
+    | 'field_label_serializable'
+    | 'field_image'
+    | 'field_variable';
 
 type CustomTypes = 'field_autocomplete_input';
 
@@ -33,7 +29,7 @@ interface DummyInput extends BaseInput {
 
 interface FieldInput extends BaseInput {
     text?: string;
-    check?: string;
+    check?: BlockTypes[];
     name: string;
 }
 
@@ -49,14 +45,15 @@ type ArgDefinitions = Union.Merge<
     { [n in ArgNumbers as `args${n}`]?: Inputs[] } & { [n in ArgNumbers as `message${n}`]?: string }
 >;
 
-type Connection = null | BlockTypes | BlockTypes[];
+type Connection = null | BlockTypes;
 
 interface BaseBlockDefinition extends ArgDefinitions {
-    colour: ColorDefinition;
+    colour?: BlockColours;
+    extensions?: string[];
     helpUrl?: string;
     inputsInline?: boolean;
+    mutator?: string;
     tooltip?: string;
-    type?: BlockTypes;
 }
 
 export interface ValueBlockDefinition extends BaseBlockDefinition {
