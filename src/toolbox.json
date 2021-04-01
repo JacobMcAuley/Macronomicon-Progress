@@ -126,6 +126,58 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "kind": "category",
+                    "name": "Light",
+                    "contents": [
+                        {
+                            "kind": "category",
+                            "name": "Scene",
+                            "contents": [
+                                {
+                                    "kind": "block",
+                                    "type": "update_darkness"
+                                }
+                            ]
+                        },
+                        {
+                            "kind": "category",
+                            "name": "Placed Lights",
+                            "contents": [
+                                {
+                                    "kind": "block",
+                                    "type": "update_light"
+                                },
+                                {
+                                    "kind": "block",
+                                    "type": "update_light_animation"
+                                },
+                                {
+                                    "kind": "block",
+                                    "type": "update_light_color"
+                                },
+                                {
+                                    "kind": "block",
+                                    "type": "update_light_fov"
+                                },
+                                {
+                                    "kind": "block",
+                                    "type": "update_light_rotation"
+                                }
+                            ]
+                        },
+                        {
+                            "kind": "category",
+                            "name": "Filter",
+                            "contents": [
+                                {
+                                    "kind": "block",
+                                    "type": "light_query_all"
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         },

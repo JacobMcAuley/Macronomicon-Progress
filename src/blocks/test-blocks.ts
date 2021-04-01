@@ -17,3 +17,6 @@ defineBlock({
     },
     generator: () => ``,
 });
+
+
+//canvas.lighting.updateAll(value => ({ hidden: !value.data.hidden }));

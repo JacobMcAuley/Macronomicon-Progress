@@ -50,6 +50,16 @@ enum BlockNames {
     RollCustom = 'roll_custom',
     RollAbilities = 'roll_abilities',
 
+    //Light
+    UpdateLight = 'update_light',
+    UpdateLightAnimation = 'update_light_animation',
+    UpdateLightColor = 'update_light_color',
+    UpdateLightFOV = 'update_light_fov',
+    UpdateLightRotation = 'update_light_rotation',
+
+    UpdateDarkness = 'update_darkness',
+    SceneLights = 'light_query_all',
+
     //Generic
     UserNumber = 'user_number',
 
@@ -62,6 +72,9 @@ enum BlockTypes {
     ActorCollection = 'ActorCollection', // Can be resolved back to an actor
     ActorCollectionFilter = 'ActorCollectionFilter',
     ActorUpdate = 'ActorUpdate',
+
+    // Light
+    LightUpdate = 'LightUpdate',
 
     // Rolls
     RollInfo = 'RollInfo',
