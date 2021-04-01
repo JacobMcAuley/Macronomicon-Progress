@@ -39,10 +39,18 @@ defineBlock({
                 name: 'ROLL_FORMULA',
                 type: 'input_value',
             },
+            {
+                name: 'DISPLAY_TYPE',
+                options: [
+                    ['self', 'game.user.id'],
+                    ['all', ''],
+                ],
+                type: 'field_dropdown',
+            },
         ],
         colour: 77,
         inputsInline: true,
-        message0: 'Display Dice Roll: %1',
+        message0: 'Display Dice Roll: %1 to %2',
         nextStatement: BlockTypes.ActorUpdate,
         previousStatement: BlockTypes.ActorUpdate,
         tooltip: 'Used to output a roll formula to chat',
@@ -51,7 +59,7 @@ defineBlock({
         const formula =
             Blockly.JavaScript.valueToCode(block, 'ROLL_FORMULA', Blockly.JavaScript.ORDER_NONE) ||
             "(await new Roll('0'))";
-        return `${formula}.toMessage();`;
+        return `${formula}.toMessage({whisper: [${block.getFieldValue('DISPLAY_TYPE')}]});`;
     },
 });
 

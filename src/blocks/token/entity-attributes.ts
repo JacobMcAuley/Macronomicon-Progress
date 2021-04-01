@@ -55,7 +55,7 @@ Blockly.Blocks['list_roll_create_with'] = {
 
         this.setHelpUrl(Blockly.Msg['LISTS_CREATE_WITH_HELPURL']);
         this.setStyle('list_blocks');
-        this.itemCount_ = 3;
+        this.itemCount_ = 0;
         this.updateShape_();
         this.setOutput(true, BlockTypes.RollCollection);
         this.setMutator(new Blockly.Mutator(['list_roll_parameter']));
