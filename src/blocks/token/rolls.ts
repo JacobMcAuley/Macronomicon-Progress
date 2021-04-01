@@ -4,33 +4,26 @@ import { BlockNames, BlockTypes } from '../block-definitions';
 import { defineBlock } from '../util';
 
 defineBlock({
-    name: BlockNames.RollAbilities,
-    init: function () {
-        this.appendDummyInput()
-            .appendField('Roll')
-            .appendField(
-                new Blockly.FieldDropdown(Object.entries(CONFIG.DND5E.abilities).map(([k, v]) => [v, k])),
-                'ABILITY',
-            )
-            .appendField(
-                new Blockly.FieldDropdown([
-                    ['save', 'rollAbilitySave'],
-                    ['check', 'rollAbilityTest'],
-                    ['situational', 'rollAbility'],
-                ]),
-                'TYPE',
-            )
-            .appendField('check to chat');
-    },
+    name: BlockNames.RollDice,
     JSON: {
+        args0: [
+            {
+                check: BlockTypes.RollCollection,
+                name: 'ROLL_COLLECTION',
+                type: 'input_value',
+            },
+        ],
         colour: 0,
+        message0: 'Roll Dice Formula: %1',
         previousStatement: BlockTypes.ActorUpdate,
         nextStatement: BlockTypes.ActorUpdate,
     },
     generator: (_, block) => {
-        const ability = block.getFieldValue('ABILITY') || 'str';
-        const type = block.getFieldValue('TYPE') || 'rollAbility';
-        return `target.actor.${type}("${ability}")`;
+        const collection =
+            Blockly.JavaScript.valueToCode(block, 'ROLL_COLLECTION', Blockly.JavaScript.ORDER_NONE) ||
+            "(await new Roll('0'))";
+        const code = `(${collection}).roll();`;
+        return code;
     },
 });
 
@@ -50,6 +43,7 @@ defineBlock({
         message0: 'Use item %1',
         previousStatement: BlockTypes.ActorUpdate,
         nextStatement: BlockTypes.ActorUpdate,
+        tooltip: 'Locates an item with the given name to use. Take first item found.',
     },
     generator: (_, block) => `{
         const speaker = ChatMessage.getSpeaker();
@@ -89,6 +83,7 @@ defineBlock({
         message0: 'Cast spell %1',
         previousStatement: BlockTypes.ActorUpdate,
         nextStatement: BlockTypes.ActorUpdate,
+        tooltip: 'Locates a spell with the given name to use. Take first spell found.',
     },
     generator: (_, block) => `{
           const speaker = ChatMessage.getSpeaker();
@@ -114,7 +109,7 @@ defineBlock({
 
 // TODO - Add some data for the chat message
 defineBlock({
-    name: BlockNames.RollChat,
+    name: BlockNames.RollFormula,
     JSON: {
         args0: [
             {
@@ -122,18 +117,25 @@ defineBlock({
                 name: 'ROLL_FORMULA',
                 type: 'input_value',
             },
+            {
+                check: Array,
+                name: 'EXTRA_PARAMETERS',
+                type: 'input_value',
+            },
         ],
         colour: 0,
         inputsInline: true,
-        message0: 'Roll Dice Formula: %1 to chat',
-        nextStatement: BlockTypes.ActorUpdate,
-        previousStatement: BlockTypes.ActorUpdate,
-        tooltip: 'Used to output a roll formula to chat',
+        message0: 'Dice Formula: %1 with %2',
+        output: BlockTypes.RollCollection,
+        tooltip: 'Used to create roll which you can extract info from',
     },
     generator: (_, block) => {
-        const collection = Blockly.JavaScript.valueToCode(block, 'ROLL_FORMULA', Blockly.JavaScript.ORDER_NONE);
-
-        return `new Roll(${collection}).toMessage();`;
+        const collection =
+            Blockly.JavaScript.valueToCode(block, 'ROLL_FORMULA', Blockly.JavaScript.ORDER_NONE) || `"0"`;
+        const parameters =
+            Blockly.JavaScript.valueToCode(block, 'EXTRA_PARAMETERS', Blockly.JavaScript.ORDER_NONE) || `"0"`;
+        console.log(parameters);
+        return [`await new Roll(${collection}, {})`, Blockly.JavaScript.ORDER_NONE];
     },
 });
 
@@ -168,15 +170,15 @@ defineBlock({
         ],
         colour: 0,
         message0: '%1 %2 %3',
-        output: [BlockTypes.RollInfo, BlockTypes.Number],
+        output: [BlockTypes.RollInfo],
     },
     generator: (_, block) => {
         const collection = Blockly.JavaScript.valueToCode(block, 'ROLL_COLLECTION', Blockly.JavaScript.ORDER_NONE);
         const amount = block.getFieldValue('ROLL_AMOUNT') || '0';
         const rollType = block.getFieldValue('ROLL_TYPE') || 'd0';
-
+        const regex = /(?!^|.$)["]/gm;
         const code = collection ? `"${amount}${rollType} + ${collection}"` : `"${amount}${rollType}"`;
-        return [code, Blockly.JavaScript.ORDER_ATOMIC];
+        return [code.replace(regex, ''), Blockly.JavaScript.ORDER_ATOMIC];
     },
 });
 
@@ -198,12 +200,41 @@ defineBlock({
         ],
         colour: 0,
         message0: '%1 %2',
-        output: [BlockTypes.RollInfo, BlockTypes.Number],
+        output: BlockTypes.RollInfo,
     },
     generator: (_, block) => {
         const collection = Blockly.JavaScript.valueToCode(block, 'ROLL_COLLECTION', Blockly.JavaScript.ORDER_NONE);
-        const amount = block.getFieldValue('ROLL_CUSTOM') || '0';
-        const code = collection ? `"${amount} + ${collection}"` : `"${amount}"`;
-        return [code, Blockly.JavaScript.ORDER_ATOMIC];
+        const amount = `"${block.getFieldValue('ROLL_CUSTOM') || '0'}"`;
+        const regex = /(?!^|.$)["]/gm;
+        const code = collection ? `${amount} + ${collection}` : `"${amount}"`;
+
+        return [code.replace(regex, ''), Blockly.JavaScript.ORDER_ATOMIC];
+    },
+});
+
+// Extract Dice Info
+
+defineBlock({
+    name: BlockNames.RetrieveRollTotal,
+    JSON: {
+        args0: [
+            {
+                check: BlockTypes.RollCollection,
+                name: 'ROLL_COLLECTION',
+                type: 'input_value',
+            },
+        ],
+        colour: 120,
+        inputsInline: true,
+        message0: 'Dice total of: %1',
+        output: BlockTypes.Number,
+        tooltip: 'Get the numeric total of the dice roll, requires the dice to be rolled first',
+    },
+    generator: (_, block) => {
+        const collection =
+            Blockly.JavaScript.valueToCode(block, 'ROLL_COLLECTION', Blockly.JavaScript.ORDER_NONE) ||
+            `await new Roll("0")`;
+        const code = `(${collection}).total`;
+        return [code, Blockly.JavaScript.ORDER_NONE];
     },
 });

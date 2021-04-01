@@ -24,3 +24,26 @@ defineBlock({
         tooltip: 'Gets all the tokens within the scene',
     },
 });
+
+defineBlock({
+    // Move to a different page. Generic type for comparisons
+    name: BlockNames.UserNumber,
+    JSON: {
+        args0: [
+            {
+                check: BlockTypes.RollInfo,
+                name: 'NUM',
+                text: '0',
+                type: 'field_input',
+            },
+        ],
+        colour: 47,
+        message0: '%1',
+        output: BlockTypes.Number,
+    },
+    generator: (_, block) => {
+        var code = Number(block.getFieldValue('NUM'));
+        var order = code >= 0 ? Blockly.JavaScript.ORDER_ATOMIC : Blockly.JavaScript.ORDER_UNARY_NEGATION;
+        return [code, order];
+    },
+});

@@ -30,6 +30,14 @@
                                 {
                                     "kind": "block",
                                     "type": "chat_aloud"
+                                },
+                                {
+                                    "kind": "block",
+                                    "type": "roll_chat"
+                                },
+                                {
+                                    "kind": "block",
+                                    "type": "roll_abilities_chat"
                                 }
                             ]
                         },
@@ -87,11 +95,11 @@
                                 },
                                 {
                                     "kind": "block",
-                                    "type": "roll_abilities"
+                                    "type": "roll_dice"
                                 },
                                 {
                                     "kind": "block",
-                                    "type": "roll_chat"
+                                    "type": "roll_formula"
                                 },
                                 {
                                     "kind": "block",
@@ -100,7 +108,12 @@
                                 {
                                     "kind": "block",
                                     "type": "roll_predefined"
+                                },
+                                {
+                                    "kind": "block",
+                                    "type": "retrieve_roll_total"
                                 }
+
                             ]
                         },
                         {
@@ -216,7 +229,44 @@
                             "type": "variables_set_dynamic"
                         }
                     ]
+                },
+                {
+                    "kind": "category",
+                    "name": "Math",
+                    "contents": [
+                        {
+                            "kind": "block",
+                            "type": "user_number"
+                        }
+                    ]
+                },
+                {
+                    "kind": "category",
+                    "name": "Lists",
+                    "contents": [
+                        {
+                            "kind": "block",
+                            "type": "lists_create_empty"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "lists_create_with"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "lists_repeat"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "lists_length"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "lists_isEmpty"
+                        }
+                    ]
                 }
+
             ]
         },
         {
@@ -225,7 +275,7 @@
             "contents": [
                 {
                     "kind": "block",
-                    "type": "test_block"
+                    "type": "list_roll_create_with"
                 }
             ]
         },

@@ -17,6 +17,8 @@ enum BlockNames {
 enum BlockNames {
     //Chat
     ChatAloud = 'chat_aloud',
+    RollChat = 'roll_chat',
+    RollAbilities = 'roll_abilities_chat',
 
     // Find
     SelectedTokens = 'token_query_selected_tokens',
@@ -39,16 +41,19 @@ enum BlockNames {
     //Information
     RetrieveHP = 'retrieve_hp',
     RetrieveAttribute = 'retrieve_attribute',
+    RetrieveRollTotal = 'retrieve_roll_total',
 
     // Rolls
     UseWeapon = 'use_weapon',
     UseSpell = 'use_spell',
-    RollChat = 'roll_chat',
-    RollFormula = 'roll_formula', // TODO
+    RollDice = 'roll_dice',
+    RollFormula = 'roll_formula',
     ReturnRoll = 'return_roll',
     RollPredefined = 'roll_predefined',
     RollCustom = 'roll_custom',
-    RollAbilities = 'roll_abilities',
+
+    //Roll Mutator
+    ListRollCreate = 'list_roll_create_with',
 
     //Light
     UpdateLight = 'update_light',
@@ -65,6 +70,7 @@ enum BlockNames {
 
     // Meta
     TestBlock = 'test_block',
+    TestBlock2 = 'test_block_2',
 }
 
 enum BlockTypes {
@@ -78,6 +84,7 @@ enum BlockTypes {
 
     // Rolls
     RollInfo = 'RollInfo',
+    RollCollection = 'RollCollection',
 
     //Information
     EntityInfo = 'EntityInfo',
