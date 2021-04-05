@@ -58,7 +58,7 @@ defineBlock({
     generator: (_, block) => {
         const formula =
             Blockly.JavaScript.valueToCode(block, 'ROLL_FORMULA', Blockly.JavaScript.ORDER_NONE) ||
-            "(await new Roll('0'))";
+            '(await new Roll("0"))';
         return `${formula}.toMessage({whisper: [${block.getFieldValue('DISPLAY_TYPE')}]});`;
     },
 });

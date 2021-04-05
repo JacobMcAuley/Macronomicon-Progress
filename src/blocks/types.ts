@@ -15,11 +15,9 @@ type BuiltInTypes =
     | 'field_number'
     | 'field_dropdown'
     | 'field_label'
-    | 'field_image';
-
-type CustomTypes = 'field_autocomplete_input';
-
-type CustomTypes = 'field_autocomplete_input';
+    | 'field_image'
+    | 'field_colour'
+    | 'field_angle';
 
 type CustomTypes = 'field_autocomplete_input';
 

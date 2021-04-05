@@ -3,8 +3,14 @@ import Blockly from 'blockly';
 import { BlockNames, BlockTypes } from './block-definitions';
 import { defineBlock } from './util';
 
+function L() {
+    const arr: string[][] = Object.entries(CONFIG.Canvas.lightAnimations).map(([k, v]) => [k, k]);
+    arr.push(['None', '']);
+    return arr;
+}
+
 /*
-    Filter
+    Placeables
 */
 defineBlock({
     generator: () => ['canvas.lighting.placeables', Blockly.JavaScript.ORDER_NONE],
@@ -48,14 +54,14 @@ defineBlock({
         args0: [
             {
                 name: 'TOGGLE_TYPE',
-                options: Object.entries(CONFIG.Canvas.lightAnimations).map(([k, v]) => [k, k]),
+                options: L(),
                 type: 'field_dropdown',
             },
         ],
         colour: 70,
         message0: 'Update light to %1',
-        previousStatement: BlockTypes.LightUpdate,
-        nextStatement: BlockTypes.LightUpdate,
+        previousStatement: [BlockTypes.ActorUpdate, BlockTypes.LightUpdate],
+        nextStatement: [BlockTypes.ActorUpdate, BlockTypes.LightUpdate],
     },
     generator: (_, block) =>
         `await target.update({ "lightAnimation.type" : "${block.getFieldValue('TOGGLE_TYPE')}" });`,
@@ -68,15 +74,14 @@ defineBlock({
             {
                 name: 'TINT_COLOR',
                 text: '#ff0000',
-                type: 'field_input',
+                type: 'field_colour',
             },
         ],
         colour: 70,
         message0: 'Update light to color %1',
-        previousStatement: BlockTypes.LightUpdate,
-        nextStatement: BlockTypes.LightUpdate,
+        previousStatement: [BlockTypes.ActorUpdate, BlockTypes.LightUpdate],
+        nextStatement: [BlockTypes.ActorUpdate, BlockTypes.LightUpdate],
     },
-    //tintColor : "#f51414"
     generator: (_, block) => `await target.update({ tintColor : "${block.getFieldValue('TINT_COLOR')}" });`,
 });
 
@@ -92,8 +97,8 @@ defineBlock({
         ],
         colour: 70,
         message0: 'Update FOV to %1',
-        previousStatement: BlockTypes.LightUpdate,
-        nextStatement: BlockTypes.LightUpdate,
+        previousStatement: [BlockTypes.ActorUpdate, BlockTypes.LightUpdate],
+        nextStatement: [BlockTypes.ActorUpdate, BlockTypes.LightUpdate],
     },
     //tintColor : "#f51414"
     generator: (_, block) => {
@@ -115,8 +120,8 @@ defineBlock({
         ],
         colour: 70,
         message0: 'Update Rotation to %1',
-        previousStatement: BlockTypes.LightUpdate,
-        nextStatement: BlockTypes.LightUpdate,
+        previousStatement: [BlockTypes.ActorUpdate, BlockTypes.LightUpdate],
+        nextStatement: [BlockTypes.ActorUpdate, BlockTypes.LightUpdate],
     },
     //tintColor : "#f51414"
     generator: (_, block) => {
@@ -162,9 +167,6 @@ defineBlock({
             'DARKNESS_LEVEL',
         )} }, { animateDarkness: ${block.getFieldValue('ANIMATION_STATUS')} });`,
 });
-
-//canvas.lighting.updateAll(value => ({ hidden: !value.data.hidden }));
-//
 
 /*
 angle: 180

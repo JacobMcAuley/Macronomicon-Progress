@@ -48,13 +48,11 @@ defineBlock({
         previousStatement: BlockTypes.ActorUpdate,
         nextStatement: BlockTypes.ActorUpdate,
     },
-    generator: (_, block) => {
-        return `{
+    generator: (_, block) => `{
             const { max, min, value } = getProperty(target.actor, 'data.data.attributes.hp') || {};
             const damage = Math.clamped(value - ${block.getFieldValue('DAMAGE_AMOUNT')}, min, max);
             await target.actor.update({['data.attributes.hp.value']: damage});
-        }`;
-    },
+        }`,
 });
 
 interface StatusEffect {

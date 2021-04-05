@@ -55,7 +55,12 @@ enum BlockNames {
     //Roll Mutator
     ListRollCreate = 'list_roll_create_with',
 
-    //Light
+    //Token Vision
+    UpdateTokenSightLight = 'update_token_sight_light',
+    UpdateTokenSightAngle = 'update_token_sight_angle',
+    UpdateTokenLightColor = 'update_token_light_color',
+
+    //Light Placeables
     UpdateLight = 'update_light',
     UpdateLightAnimation = 'update_light_animation',
     UpdateLightColor = 'update_light_color',

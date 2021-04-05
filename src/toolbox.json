@@ -113,7 +113,6 @@
                                     "kind": "block",
                                     "type": "retrieve_roll_total"
                                 }
-
                             ]
                         },
                         {
@@ -135,6 +134,24 @@
                                 {
                                     "kind": "block",
                                     "type": "toggle_effect"
+                                }
+                            ]
+                        },
+                        {
+                            "kind": "category",
+                            "name": "Vision",
+                            "contents": [
+                                {
+                                    "kind": "block",
+                                    "type": "update_token_sight_light"
+                                },
+                                {
+                                    "kind": "block",
+                                    "type": "update_token_light_color"
+                                },
+                                {
+                                    "kind": "block",
+                                    "type": "update_token_sight_angle"
                                 }
                             ]
                         }
@@ -266,7 +283,6 @@
                         }
                     ]
                 }
-
             ]
         },
         {
