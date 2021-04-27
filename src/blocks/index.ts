@@ -9,5 +9,6 @@ export * from './context/context-item';
 export * from './token/filter';
 export * from './token/query';
 export * from './token/update';
+export * from './token/selectors';
 
 export * from './input/number';

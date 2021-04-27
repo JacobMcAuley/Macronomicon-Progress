@@ -42,7 +42,7 @@ defineBlock({
         ],
         colour: BlockColours.Default,
         inputsInline: false,
-        message0: 'for each %1 as %2 %3 do %4',
+        message0: 'for each of %1 as %2 %3 do %4',
         previousStatement: null,
         nextStatement: null,
     },

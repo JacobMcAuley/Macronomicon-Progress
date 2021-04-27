@@ -20,6 +20,18 @@
                 },
                 {
                     "kind": "block",
+                    "type": "tokens_filter_and"
+                },
+                {
+                    "kind": "block",
+                    "type": "tokens_filter_or"
+                },
+                {
+                    "kind": "block",
+                    "type": "tokens_selector_first"
+                },
+                {
+                    "kind": "block",
                     "type": "tokens_filter_friendly"
                 },
                 {
@@ -44,11 +56,7 @@
                 },
                 {
                     "kind": "block",
-                    "type": "token_update_heal"
-                },
-                {
-                    "kind": "block",
-                    "type": "token_update_damage"
+                    "type": "token_update_health"
                 },
                 {
                     "kind": "block",
