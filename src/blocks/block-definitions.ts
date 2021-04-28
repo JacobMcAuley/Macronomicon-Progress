@@ -12,6 +12,8 @@ enum BlockNames {
     ItemsOnToken = 'items_on_token',
     ItemsFilterNamed = 'items_filter_named',
 
+    RollItemCard = 'roll_item_card',
+
     TokensFilterAnd = 'tokens_filter_and',
     TokensFilterOr = 'tokens_filter_or',
     TokensFilterFriendly = 'tokens_filter_friendly',
@@ -24,6 +26,11 @@ enum BlockNames {
     TokensFindScene = 'tokens_find_scene',
     TokensSelectorAll = 'tokens_selector_all',
     TokensSelectorFirst = 'tokens_selector_first',
+
+    TokenRetrieveAC = 'token_retrieve_ac',
+    TokenRetrieveLevel = 'token_retrieve_level',
+    TokenRetrieveHealth = 'token_retrieve_health',
+    TokenRetrieveResource = 'token_retrieve_resource',
 
     TokenUpdateHealth = 'token_update_health',
     TokenUpdateDamage = 'token_update_damage',
@@ -54,6 +61,7 @@ enum BlockColours {
     Orange = '#f4a259',
     Red = '#bc4b51',
     Yellow = '#f4e285',
+    Purple = '#8d59f4',
 }
 
 export type BlockCollections = Extract<BlockTypes, `${string}Collection`>;

@@ -40,7 +40,7 @@ defineBlock({
 
         const collection = (collectionBlock?.outputConnection.getCheck() ?? []).includes(BlockTypes.Token)
             ? `[${collectionCode}]`
-            : collectionCode;
+            : collectionCode; // default to []
 
         const healingAmount = Blockly.JavaScript.valueToCode(block, 'HEALING_AMOUNT', Blockly.JavaScript.ORDER_NONE);
         const code = `

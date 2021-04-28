@@ -73,6 +73,26 @@
                 {
                     "kind": "block",
                     "type": "items_filter_named"
+                },
+                {
+                    "kind": "block",
+                    "type": "roll_item_card"
+                },
+                {
+                    "kind": "block",
+                    "type": "token_retrieve_ac"
+                },
+                {
+                    "kind": "block",
+                    "type": "token_retrieve_level"
+                },
+                {
+                    "kind": "block",
+                    "type": "token_retrieve_health"
+                },
+                {
+                    "kind": "block",
+                    "type": "token_retrieve_resource"
                 }
             ]
         },
