@@ -13,8 +13,8 @@ interface TextFieldOptions {
     text?: string;
     type: string;
 }
-class AutocompleteTextInput extends Blockly.FieldTextInput {
-    static fromJson(options: unknown) {
+export class AutocompleteTextInput extends Blockly.FieldTextInput {
+    static fromJson(options: unknown): AutocompleteTextInput {
         const { text: rawText, ...rest } = options as TextFieldOptions;
         const text = Blockly.utils.replaceMessageReferences(rawText);
         return new AutocompleteTextInput(text, undefined, rest);
@@ -22,14 +22,17 @@ class AutocompleteTextInput extends Blockly.FieldTextInput {
 
     private results: AutocompleteResults | null = null;
     private resultIndex = 0;
-    setEditorValue_(newValue: unknown) {
+
+    rollData = {};
+
+    setEditorValue_(newValue: unknown): void {
         super.setEditorValue_(newValue);
     }
-    showEditor_(event?: Event, isQuietInput?: boolean) {
+    showEditor_(event?: Event, isQuietInput?: boolean): void {
         super.showEditor_(event, isQuietInput);
         this.renderDropdownEditor();
     }
-    resizeEditor_() {
+    resizeEditor_(): void {
         super.resizeEditor_();
         this.resultIndex = 0;
         this.renderDropdownEditor();
@@ -57,7 +60,7 @@ class AutocompleteTextInput extends Blockly.FieldTextInput {
         this.renderDropdownEditor();
     }
     private renderDropdownEditor(): void {
-        this.results = getAutocompleteResults(this.getValue() as string, _token?.actor?.getRollData() ?? {}); // TODO - Link to a specific actor?
+        this.results = getAutocompleteResults(this.getValue() as string, this.rollData ?? {}); // TODO - Link to a specific actor?
 
         if (!this.results) {
             this.closeDropdownEditor();

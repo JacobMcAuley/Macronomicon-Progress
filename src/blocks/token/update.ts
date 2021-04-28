@@ -38,7 +38,7 @@ defineBlock({
         const collectionBlock = block.getInputTargetBlock('TOKEN');
         const collectionCode = Blockly.JavaScript.valueToCode(block, 'TOKEN', Blockly.JavaScript.ORDER_NONE);
 
-        const collection = collectionBlock?.outputConnection.getCheck().includes(BlockTypes.Token)
+        const collection = (collectionBlock?.outputConnection.getCheck() ?? []).includes(BlockTypes.Token)
             ? `[${collectionCode}]`
             : collectionCode;
 

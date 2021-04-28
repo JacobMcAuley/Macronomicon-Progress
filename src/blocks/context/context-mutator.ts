@@ -12,7 +12,12 @@ const contextMutatorMixinObj: Pick<Blockly.Block__Class, 'mutationToDom' | 'domT
         this.contextParentId = contextParentId;
         if (contextParentId && this.workspace?.getBlockById(contextParentId)) {
             const contextParentBlock = this.workspace.getBlockById(contextParentId);
-            contextParentBlock.onchange(new Blockly.Events.BlockChange(contextParentBlock));
+            if (contextParentBlock) {
+                const variableName = contextParentBlock.getFieldValue('ITEM_NAME');
+                this.setFieldValue(variableName, 'ITEM_NAME');
+                this.setColour(contextParentBlock.getColour());
+                this.setOutput(true, contextParentBlock?.outputConnection?.getCheck());
+            }
         }
     },
     mutationToDom(this: Blockly.Block) {

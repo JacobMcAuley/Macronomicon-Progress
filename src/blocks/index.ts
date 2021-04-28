@@ -12,3 +12,7 @@ export * from './token/update';
 export * from './token/selectors';
 
 export * from './input/number';
+export * from './input/roll';
+
+export * from './items/query';
+export * from './items/filter';

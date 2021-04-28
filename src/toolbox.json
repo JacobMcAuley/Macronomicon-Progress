@@ -61,6 +61,32 @@
                 {
                     "kind": "block",
                     "type": "user_input_number"
+                },
+                {
+                    "kind": "block",
+                    "type": "input_roll"
+                },
+                {
+                    "kind": "block",
+                    "type": "items_on_token"
+                },
+                {
+                    "kind": "block",
+                    "type": "items_filter_named"
+                }
+            ]
+        },
+        {
+            "kind": "category",
+            "name": "Logic",
+            "contents": [
+                {
+                    "kind": "block",
+                    "type": "controls_if"
+                },
+                {
+                    "kind": "block",
+                    "type": "logic_compare"
                 }
             ]
         }

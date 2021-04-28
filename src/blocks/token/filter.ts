@@ -4,7 +4,7 @@ import { BlockNames, BlockTypes } from '../block-definitions';
 import { defineBlock } from '../util';
 
 defineBlock({
-    name: BlockNames.TokenFilterAnd,
+    name: BlockNames.TokensFilterAnd,
     JSON: {
         args0: [
             {
@@ -32,7 +32,7 @@ defineBlock({
 });
 
 defineBlock({
-    name: BlockNames.TokenFilterOr,
+    name: BlockNames.TokensFilterOr,
     JSON: {
         args0: [
             {

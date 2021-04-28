@@ -28,18 +28,16 @@ export class StrictConnectionChecker extends Blockly.ConnectionChecker implement
             }
         }
 
-        if (!checkArrayOne || !checkArrayTwo) {
-            // Null arrays can only connect to other null arrays.
-            return checkArrayOne == checkArrayTwo;
+        if (checkArrayOne === null || checkArrayTwo === null) {
+            return true;
         }
 
-        // Find any intersection in the check lists.
         for (let i = 0; i < checkArrayOne.length; i++) {
             if (checkArrayTwo.indexOf(checkArrayOne[i]) != -1) {
                 return true;
             }
         }
-        // No intersection.
+
         return false;
     }
 }

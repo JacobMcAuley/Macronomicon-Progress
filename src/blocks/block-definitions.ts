@@ -7,8 +7,13 @@ enum BlockNames {
     EntityContext = 'entity_context',
     EntityContextItem = 'entity_context_item',
 
-    TokenFilterAnd = 'tokens_filter_and',
-    TokenFilterOr = 'tokens_filter_or',
+    InputRoll = 'input_roll',
+
+    ItemsOnToken = 'items_on_token',
+    ItemsFilterNamed = 'items_filter_named',
+
+    TokensFilterAnd = 'tokens_filter_and',
+    TokensFilterOr = 'tokens_filter_or',
     TokensFilterFriendly = 'tokens_filter_friendly',
     TokensFilterHostile = 'tokens_filter_hostile',
     TokensFilterNPC = 'tokens_filter_npc',
@@ -29,15 +34,17 @@ enum BlockNames {
 enum BlockTypes {
     Actor = 'Actor',
     ActorCollection = 'ActorCollection',
+
     Item = 'Item',
     ItemCollection = 'ItemCollection',
+    ItemCollectionFilter = 'ItemCollectionFilter',
+
     Token = 'Token',
     TokenCollection = 'TokenCollection',
     TokenCollectionFilter = 'TokenCollectionFilter',
 
     Number = 'Number',
     String = 'String',
-    Roll = 'Roll',
 }
 
 enum BlockColours {
@@ -59,8 +66,8 @@ const BlockTypeColourMap: Record<BlockTypes, BlockColours> = {
     [BlockTypes.TokenCollectionFilter]: BlockColours.Green2,
     [BlockTypes.Item]: BlockColours.Orange,
     [BlockTypes.ItemCollection]: BlockColours.Orange,
+    [BlockTypes.ItemCollectionFilter]: BlockColours.Orange,
     [BlockTypes.Number]: BlockColours.Red,
-    [BlockTypes.Roll]: BlockColours.Red,
     [BlockTypes.String]: BlockColours.Yellow,
 };
 
