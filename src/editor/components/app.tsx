@@ -4,12 +4,7 @@ import { createPortal } from 'react-dom';
 import Blockly from 'blockly';
 
 import { loggers } from '../../debug';
-import {
-    BLOCK_TRIGGER_SAVE_EVENTS,
-    MACRO_FLAG_NS,
-    MacroEditorMode,
-    MacroFlags,
-} from '../constants';
+import { BLOCK_TRIGGER_SAVE_EVENTS, MACRO_FLAG_NS, MacroEditorMode, MacroFlags } from '../constants';
 import { BlockEditor } from './block-editor';
 import { CodeEditor } from './code-editor';
 import { ModeButtons } from './mode-buttons';
@@ -52,7 +47,7 @@ const updateMacroSilently = async (macro: Macro, data: Macro.Data) => {
     });
 
     // WE NEED TO HANDLE UPDATING OURSELVES AS A REDRAW HURTS US
-    mergeObject(macro._data, data, { overwrite: true });
+    mergeObject(macro.data, data, { overwrite: true });
 
     return response;
 };

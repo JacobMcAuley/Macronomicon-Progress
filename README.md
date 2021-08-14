@@ -9,23 +9,9 @@ Macronomicon is a module that uses Google's [Blockly Visual Programming](https:/
 By default, `webpack` will use `webpack-dev-server` will proxy Foundry on port:30001
 
 ```bash
-yarn playground
+yarn serve
 ```
-
-### Workshop
-
-The workshop is a small HTML page to preview the blocks
-
-```bash
-yarn playground
-```
-
-## Contributing
-
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+[GNU](https://choosealicense.com/licenses/gpl-3.0/#)
